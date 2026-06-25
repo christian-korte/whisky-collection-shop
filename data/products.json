@@ -18,7 +18,7 @@
     "price": 4500,
     "status": "available",
     "description": "Ein außergewöhnlicher Macallan aus dem Jahr 1997, 25 Jahre in Sherry Butts gereift. Intensiv getrocknete Früchte, dunkle Schokolade, Ingwer und Eiche. Einer der besten Macallans überhaupt.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Macallan+25"],
+    "images": ["https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=800&q=80"],
     "packIds": [],
     "featured": true
   },
@@ -41,7 +41,7 @@
     "price": 9800,
     "status": "available",
     "description": "Eine absolute Rarität der inzwischen geschlossenen japanischen Brennerei Karuizawa. Jahrgang 1984, 30 Jahre im Sherryfass. Dunkle Beerenfrüchte, Miso, Tabak und Sandelholz. Weltklasse.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Karuizawa+1984"],
+    "images": ["https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80"],
     "packIds": [],
     "featured": true
   },
@@ -64,7 +64,7 @@
     "price": 7500,
     "status": "available",
     "description": "Port Ellen ist seit 1983 geschlossen. Diese legendäre Abfüllung aus dem Jahrgang 1979 zeigt das Beste was Islay zu bieten hat: Rauch, Torf, Zitrusfrüchte und Meeresluft. Eine Ikone.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Port+Ellen+1979"],
+    "images": ["https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80"],
     "packIds": [],
     "featured": false
   },
@@ -87,7 +87,7 @@
     "price": 450,
     "status": "available",
     "description": "Der Uigeadail aus 2008 ist noch mit der alten Rezeptur. Starker Torf (55 ppm), Oloroso-Sherry, dunkle Schokolade und Kaffee. Weltwhisky des Jahres 2009.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Ardbeg+Uigeadail"],
+    "images": ["https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=800&q=80"],
     "packIds": ["islay-selection"],
     "featured": false
   },
@@ -110,7 +110,7 @@
     "price": 3200,
     "status": "available",
     "description": "41 Jahre im Sherryfass – das ist Glenfarclas in seiner reinsten Form. Getrocknete Früchte, Toffee, alte Eiche und ein Hauch von Leder. Eine der großen Speyside-Raritäten.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Glenfarclas+1966"],
+    "images": ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"],
     "packIds": [],
     "featured": false
   },
@@ -133,7 +133,7 @@
     "price": 380,
     "status": "available",
     "description": "Springbank Local Barley aus eigenem Anbau, ungetorft und komplett handgemacht. Buttrig, malzig, leicht salzig mit Vanille und Birne. Eines der ehrlichsten Whiskys Schottlands.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Springbank+Local+Barley"],
+    "images": ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"],
     "packIds": [],
     "featured": false
   },
@@ -156,7 +156,7 @@
     "price": 5200,
     "status": "reserved",
     "description": "Ein legendärer Bowmore aus den 1968er Jahren, 32 Jahre im Oloroso-Sherryfass. Tropische Früchte (die typischen Bowmore-Ananas-Noten), Rauch, Torf und Schokolade. Kaum zu übertreffen.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Bowmore+1968"],
+    "images": ["https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=800&q=80"],
     "packIds": ["islay-selection"],
     "featured": false
   },
@@ -179,7 +179,7 @@
     "price": 320,
     "status": "available",
     "description": "Der Octomore 06.3 mit 258 ppm ist einer der am stärksten getorften Whiskys der Welt. Trotz extremem Torf elegant und komplex, mit Vanille, Limone und Asche. Nur 5 Jahre alt.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Octomore+06.3"],
+    "images": ["https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"],
     "packIds": ["islay-selection"],
     "featured": false
   },
@@ -202,7 +202,7 @@
     "price": 850,
     "status": "sold",
     "description": "Der klassische Macallan 18 in der alten Sherry Oak Abfüllung von 2004. Vollständig in Sherryfässern gereift. Rosinen, Orange, Gewürze, Schokolade. Referenz-Speyside.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Macallan+18+2004"],
+    "images": ["https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=800&q=80"],
     "packIds": [],
     "featured": false
   },
@@ -225,7 +225,7 @@
     "price": 8500,
     "status": "available",
     "description": "Das berühmte Geisha-Label von Karuizawa, Jahrgang 1983. Dichte Sherrynoten, Pflaume, dunkle Bitterschokolade, Tabak und exotische Gewürze. Eine absolute Ikone der japanischen Whiskygeschichte.",
-    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Karuizawa+Geisha"],
+    "images": ["https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&crop=entropy&w=800&q=80"],
     "packIds": [],
     "featured": true
   }

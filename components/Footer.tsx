@@ -29,9 +29,12 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="mt-8 pt-6 border-t border-amber-900/20 text-center">
+        <div className="mt-8 pt-6 border-t border-amber-900/20 text-center space-y-1">
           <p className="text-[#f5f0e8]/40 text-xs">
             Privatverkauf · Kein Gewerbe · Nur für Personen ab 18 Jahren
+          </p>
+          <p className="text-[#f5f0e8]/25 text-xs">
+            Fotos: <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#f5f0e8]/40 transition-colors">Unsplash.com</a>
           </p>
         </div>
       </div>

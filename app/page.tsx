@@ -11,7 +11,11 @@ export default function HomePage() {
     <div>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#1a1000] to-[#0f0f0f] py-24 px-4">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1920&q=80')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1000]/60 to-[#0f0f0f]/80" />
         <div className="max-w-4xl mx-auto text-center relative">
           <p className="text-amber-500 text-sm font-medium uppercase tracking-widest mb-4">Private Kollektion</p>
           <h1 className="font-playfair text-5xl md:text-7xl font-bold text-[#f5f0e8] mb-6 leading-tight">
@@ -106,17 +110,29 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl mb-3">🥃</div>
+              <div className="flex justify-center mb-3">
+                <svg className="w-10 h-10 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15M14.25 3.104c.251.023.501.05.75.082M19.8 15l-1.575 1.399a.75.75 0 01-.98-.034L15 14.25m4.8.75l.75 2.625a.75.75 0 01-.519.932l-3 .75a.75.75 0 01-.932-.519L15 14.25m-8.25.75l-.75 2.625a.75.75 0 00.519.932l3 .75a.75.75 0 00.932-.519L11.25 15" />
+                </svg>
+              </div>
               <h3 className="font-playfair text-lg font-bold text-[#f5f0e8] mb-2">Kuratierte Raritäten</h3>
               <p className="text-[#f5f0e8]/50 text-sm">Ausschließlich besondere Abfüllungen – keine Standard-Supermarkt-Whiskys.</p>
             </div>
             <div>
-              <div className="text-4xl mb-3">💳</div>
+              <div className="flex justify-center mb-3">
+                <svg className="w-10 h-10 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                </svg>
+              </div>
               <h3 className="font-playfair text-lg font-bold text-[#f5f0e8] mb-2">Flexible Zahlung</h3>
               <p className="text-[#f5f0e8]/50 text-sm">PayPal oder Banküberweisung – unkompliziert und sicher.</p>
             </div>
             <div>
-              <div className="text-4xl mb-3">📦</div>
+              <div className="flex justify-center mb-3">
+                <svg className="w-10 h-10 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                </svg>
+              </div>
               <h3 className="font-playfair text-lg font-bold text-[#f5f0e8] mb-2">Persönliche Übergabe</h3>
               <p className="text-[#f5f0e8]/50 text-sm">Bevorzugt persönliche Übergabe oder versicherter Versand nach Absprache.</p>
             </div>

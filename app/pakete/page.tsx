@@ -13,12 +13,22 @@ export default function PaketePage() {
   const packs = getAllPacks()
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mb-8">
-        <h1 className="font-playfair text-4xl font-bold text-[#f5f0e8] mb-2">Kuratierte Pakete</h1>
-        <p className="text-[#f5f0e8]/50">Ausgewählte Zusammenstellungen mehrerer Flaschen zu einem attraktiven Paketpreis</p>
+    <div>
+      {/* Page Header with Background */}
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#1a1000] to-[#0f0f0f] py-16 px-4 mb-10">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-25"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1920&q=80')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1000]/70 to-[#0f0f0f]/90" />
+        <div className="max-w-7xl mx-auto relative">
+          <p className="text-amber-500 text-sm font-medium uppercase tracking-widest mb-3">Sammlung</p>
+          <h1 className="font-playfair text-4xl md:text-5xl font-bold text-[#f5f0e8] mb-3">Kuratierte Pakete</h1>
+          <p className="text-[#f5f0e8]/60 text-lg max-w-2xl">Ausgewählte Zusammenstellungen mehrerer Flaschen zu einem attraktiven Paketpreis</p>
+        </div>
       </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="mb-8">
         <PrivatverkaufBanner />
       </div>
@@ -97,6 +107,7 @@ export default function PaketePage() {
           Aktuell sind keine Pakete verfügbar. Schau bald wieder vorbei.
         </div>
       )}
+      </div>
     </div>
   )
 }
