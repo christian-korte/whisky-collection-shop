@@ -1,6 +1,6 @@
 # Projektstatus: Christians Whisky Sammlung
 
-**Stand**: 2026-06-25  
+**Stand**: 2026-06-25 (Design-Update)  
 **Build**: Erfolgreich (npm run build – 18 statische Seiten)
 
 ## Erledigte Aufgaben
@@ -27,10 +27,17 @@
 - [x] Graceful Degradation ohne RESEND_API_KEY (Console-Log)
 - [x] Input-Validierung (Pflichtfelder, E-Mail-Format)
 
+### Design & Bilder
+- [x] 9 verifizierte Unsplash-Produktfotos (ersetzt Platzhalter)
+- [x] Hero-Sektion (Startseite) mit atmosphärischem Hintergrundbild (Whisky-Fässer)
+- [x] Pakete-Seite Header mit Hintergrundbild
+- [x] SVG-Icons in Info-Boxes (ersetzt Emojis)
+- [x] Unsplash-Attributionshinweis im Footer
+
 ### Content & Daten
 - [x] 10 realistische Whisky-Produkte (Macallan, Karuizawa, Port Ellen, Ardbeg, Glenfarclas, Springbank, Bowmore, Bruichladdich)
 - [x] Islay Selection Pack (3 Islay-Whiskys)
-- [x] Platzhalter-Bilder (https://placehold.co)
+- [x] Produktfotos: Unsplash Stock-Bilder (9 eindeutig, 1 Crop-Variante)
 
 ### Dokumentation
 - [x] README.md mit Setup-Anleitung

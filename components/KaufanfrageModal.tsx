@@ -147,7 +147,7 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
                     required
                     checked={form.ageConfirmed}
                     onChange={e => setForm(f => ({ ...f, ageConfirmed: e.target.checked }))}
-                    className="mt-0.5 h-4 w-4 accent-amber-500"
+                    className="shrink-0 mt-0.5 h-4 w-4 accent-amber-500 cursor-pointer"
                   />
                   <span className="text-sm text-[#f5f0e8]/70">
                     Ich bestätige, dass ich mindestens 18 Jahre alt bin. <span className="text-amber-500">*</span>
@@ -160,7 +160,7 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
                     required
                     checked={form.privateConfirmed}
                     onChange={e => setForm(f => ({ ...f, privateConfirmed: e.target.checked }))}
-                    className="mt-0.5 h-4 w-4 accent-amber-500"
+                    className="shrink-0 mt-0.5 h-4 w-4 accent-amber-500 cursor-pointer"
                   />
                   <span className="text-sm text-[#f5f0e8]/70">
                     Ich nehme zur Kenntnis, dass es sich um einen Privatverkauf ohne Gewährleistungsrechte gem. § 437 BGB handelt. <span className="text-amber-500">*</span>
