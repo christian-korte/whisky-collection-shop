@@ -1,0 +1,11 @@
+[
+  {
+    "id": "islay-selection",
+    "slug": "islay-selection",
+    "name": "Islay Selection",
+    "description": "Drei außergewöhnliche Islay-Whiskys vereint in einem Paket. Vom milden Rauch des Bowmore 1968 bis zum extremen Torf des Octomore 06.3 – diese Zusammenstellung zeigt die volle Bandbreite der legendären Islay-Brennereien.",
+    "productIds": ["4", "7", "8"],
+    "price": 990,
+    "images": ["https://placehold.co/800x600/1a1a1a/d97706?text=Islay+Selection"]
+  }
+]
