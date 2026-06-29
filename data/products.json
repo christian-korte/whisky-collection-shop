@@ -1,232 +1,1682 @@
 [
   {
-    "id": "1",
-    "slug": "macallan-25-years-1997",
-    "name": "Macallan 25 Years 1997",
-    "distillery": "Macallan",
-    "region": "Speyside",
-    "country": "Schottland",
-    "vintage": 1997,
-    "bottled": 2022,
-    "age": 25,
-    "cask": "Sherry Butt",
-    "bottler": "OB",
-    "strength": 43.0,
-    "volume": 700,
-    "condition": "sealed",
-    "rating": { "source": "Whisky Bible", "score": 97 },
-    "price": 4500,
-    "status": "available",
-    "description": "Ein außergewöhnlicher Macallan aus dem Jahr 1997, 25 Jahre in Sherry Butts gereift. Intensiv getrocknete Früchte, dunkle Schokolade, Ingwer und Eiche. Einer der besten Macallans überhaupt.",
-    "images": ["https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=800&q=80"],
-    "packIds": [],
-    "featured": true
-  },
-  {
-    "id": "2",
-    "slug": "karuizawa-1984-cask-7218",
-    "name": "Karuizawa 1984 Cask #7218",
-    "distillery": "Karuizawa",
-    "region": "Honshu",
-    "country": "Japan",
-    "vintage": 1984,
-    "bottled": 2014,
-    "age": 30,
-    "cask": "Sherry Hogshead #7218",
-    "bottler": "Number One Drinks",
-    "strength": 58.7,
-    "volume": 700,
-    "condition": "sealed",
-    "rating": { "source": "Whisky Advocate", "score": 99 },
-    "price": 9800,
-    "status": "available",
-    "description": "Eine absolute Rarität der inzwischen geschlossenen japanischen Brennerei Karuizawa. Jahrgang 1984, 30 Jahre im Sherryfass. Dunkle Beerenfrüchte, Miso, Tabak und Sandelholz. Weltklasse.",
-    "images": ["https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80"],
-    "packIds": [],
-    "featured": true
-  },
-  {
-    "id": "3",
-    "slug": "port-ellen-1979-32-years",
-    "name": "Port Ellen 1979 32 Years",
-    "distillery": "Port Ellen",
+    "id": "01",
+    "slug": "bowmore-26-yo-vintners-trilogy-french-oak",
+    "name": "Bowmore 26 YO Vintner's Trilogy French Oak",
+    "distillery": "Bowmore",
     "region": "Islay",
     "country": "Schottland",
-    "vintage": 1979,
-    "bottled": 2012,
-    "age": 32,
-    "cask": "Refill Hogshead",
-    "bottler": "Diageo Special Releases",
-    "strength": 54.2,
+    "vintage": null,
+    "bottled": null,
+    "age": 26,
+    "cask": "French Oak Barrique",
+    "bottler": "OB",
+    "strength": 52.5,
     "volume": 700,
     "condition": "sealed",
-    "rating": { "source": "Jim Murray", "score": 96 },
-    "price": 7500,
+    "rating": {
+      "source": "Whiskybase",
+      "score": 91
+    },
+    "price": 600,
     "status": "available",
-    "description": "Port Ellen ist seit 1983 geschlossen. Diese legendäre Abfüllung aus dem Jahrgang 1979 zeigt das Beste was Islay zu bieten hat: Rauch, Torf, Zitrusfrüchte und Meeresluft. Eine Ikone.",
-    "images": ["https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80"],
+    "description": "Der Bowmore 26 Jahre Vintner's Trilogy in der French Oak Barrique Abfüllung zeigt das harmonische Zusammenspiel von Islay-Torf und eleganter französischer Eiche. Mit 52,5% Cask Strength entfaltet er Aromen von geräucherten Pflaumen, Vanille und einem Hauch Meeresbrise. Eine exklusive Trilogie-Edition mit hohem Sammlerwert.",
+    "images": [
+      "/images/whisky/img_8573.jpg"
+    ],
     "packIds": [],
-    "featured": false
+    "featured": true
   },
   {
-    "id": "4",
-    "slug": "ardbeg-uigeadail-2008",
-    "name": "Ardbeg Uigeadail 2008",
+    "id": "02",
+    "slug": "ardbeg-ten-10-jahre",
+    "name": "Ardbeg Ten 10 Jahre",
     "distillery": "Ardbeg",
     "region": "Islay",
     "country": "Schottland",
     "vintage": null,
-    "bottled": 2008,
+    "bottled": null,
+    "age": 10,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 87
+    },
+    "price": 65,
+    "status": "available",
+    "description": "Der Ardbeg Ten ist der klassische Einstieg in die Welt des Islay-Whiskys und gilt als einer der besten 10-jährigen Single Malts der Welt. Intensiver Torfrauch trifft auf Zitrusfrüchte, Vanille und Schokolade. Nicht kühlgefiltert bei natürlicher Farbe – der wahre Ardbeg-Charakter.",
+    "images": [
+      "/images/whisky/img_8574.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "03",
+    "slug": "laphroaig-27-jahre-limited-edition",
+    "name": "Laphroaig 27 Jahre Limited Edition",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 27,
+    "cask": "Ex-Bourbon + Sherry",
+    "bottler": "OB",
+    "strength": 41.7,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 90
+    },
+    "price": 500,
+    "status": "available",
+    "description": "Der Laphroaig 27 Jahre Limited Edition verbindet Jahrzehnte Reifung in Ex-Bourbon- und Sherryfässern zu einem bemerkenswert ausgewogenen Islay-Malt. Medizinische Torfnoten werden von reifen Früchten, Honig und einem Hauch Eichengewürz umrahmt. Eine seltene Langzeitabfüllung der Destillerie.",
+    "images": [
+      "/images/whisky/img_8579.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "04",
+    "slug": "bowmore-1988-vintage-edition",
+    "name": "Bowmore 1988 Vintage Edition",
+    "distillery": "Bowmore",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 1988,
+    "bottled": null,
+    "age": null,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 47.8,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 92
+    },
+    "price": 800,
+    "status": "available",
+    "description": "Dieser Bowmore aus dem Jahrgang 1988 ist ein beeindruckendes Zeitdokument der Destillerie in ihrer Glanzzeit. Die lange Reifung in Ex-Bourbon-Fässern hat einen eleganten, torfigen Malt entwickelt mit Noten von Tropenfrüchten, Toffee und einer subtilen Salzigkeit. Sammlerstück für Bowmore-Liebhaber.",
+    "images": [
+      "/images/whisky/img_8581.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "05",
+    "slug": "talisker-30-jahre",
+    "name": "Talisker 30 Jahre",
+    "distillery": "Talisker",
+    "region": "Isle of Skye",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 30,
+    "cask": "Refill Casks",
+    "bottler": "OB",
+    "strength": 45.8,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 93
+    },
+    "price": 620,
+    "status": "available",
+    "description": "Der Talisker 30 Jahre ist eine der prestigeträchtigsten Abfüllungen der Isle of Skye Destillerie. Drei Jahrzehnte Reifung verleihen diesem Malt eine außergewöhnliche Komplexität: Rauch, Pfeffer und Meeresfrüchte verbinden sich mit tiefen Karamell- und Fruchtaromen. Jährlich in limitierter Stückzahl abgefüllt.",
+    "images": [
+      "/images/whisky/img_8583.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "06",
+    "slug": "bowmore-1973-43-jahre",
+    "name": "Bowmore 1973 43 Jahre",
+    "distillery": "Bowmore",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 1973,
+    "bottled": null,
+    "age": 43,
+    "cask": "Ex-Bourbon + Sherry",
+    "bottler": "OB",
+    "strength": 43.2,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 96
+    },
+    "price": 3500,
+    "status": "available",
+    "description": "Ein legendärer Bowmore aus dem Jahr 1973 – 43 Jahre in der Flasche eingeschlossen, entstammt er einer der berühmtesten Epochen der Destillerie. Die Kombination aus Ex-Bourbon und Sherry-Fässern hat ein außergewöhnlich reiches Profil entwickelt: Tropenfrüchte, dunkle Schokolade, Torf und Gewürze in perfekter Harmonie. Eine absolute Rarität mit Kultstatus unter Sammlern.",
+    "images": [
+      "/images/whisky/img_8585.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "07",
+    "slug": "glenfarclas-105-cs-20-jahre",
+    "name": "Glenfarclas 105 CS 20 Jahre",
+    "distillery": "Glenfarclas",
+    "region": "Speyside",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 20,
+    "cask": "Oloroso Sherry",
+    "bottler": "OB",
+    "strength": 60.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 88
+    },
+    "price": 180,
+    "status": "available",
+    "description": "Der Glenfarclas 105 Cask Strength ist seit Jahrzehnten ein Benchmark für Sherry-gereifte Speyside-Malts. Mit 60% Alkohol und 20 Jahren Reifung in Oloroso-Sherryfässern präsentiert er intensive Noten von Weihnachtskuchen, Rosinen, Ingwer und dunklem Schokoladen-Toffee. Familiengeführt und ohne Kompromisse abgefüllt.",
+    "images": [
+      "/images/whisky/img_8587.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "08",
+    "slug": "dun-bheagan-ardbeg-1996-19-jahre",
+    "name": "Dun Bheagan Ardbeg 1996 19 Jahre",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 1996,
+    "bottled": null,
+    "age": 19,
+    "cask": "Refill Hogshead",
+    "bottler": "William Maxwell",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 88
+    },
+    "price": 380,
+    "status": "available",
+    "description": "Diese Unabhängige Abfüllung von William Maxwell unter der Dun Bheagan-Marke zeigt Ardbeg von seiner besten Seite – 1996 destilliert und 19 Jahre in einem Refill Hogshead gereift. Rauchige Komplexität trifft auf Torferde, Salzwasser und reife Früchte. Eine authentische Independent-Bottler-Erfahrung aus Islay.",
+    "images": [
+      "/images/whisky/img_8589.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "09",
+    "slug": "laphroaig-25-jahre-2015-cask-strength",
+    "name": "Laphroaig 25 Jahre 2015 Cask Strength",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2015,
+    "age": 25,
+    "cask": "Oloroso Sherry + Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 46.8,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 92
+    },
+    "price": 520,
+    "status": "available",
+    "description": "Der Laphroaig 25 Jahre Cask Strength 2015 Edition vereint vierteljahrhundertlange Reifung in Oloroso-Sherry und Ex-Bourbon-Fässern. Intensiver medizinischer Torf wird von tiefen Sherrynoten, Lederwaren und dunklen Früchten getragen. Eine der begehrtesten jährlichen Laphroaig-Abfüllungen.",
+    "images": [
+      "/images/whisky/img_8591.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "10",
+    "slug": "bowmore-18-yo-manzanilla-cask-vintners-trilogy",
+    "name": "Bowmore 18 YO Manzanilla Cask Vintner's Trilogy",
+    "distillery": "Bowmore",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 18,
+    "cask": "Manzanilla Sherry",
+    "bottler": "OB",
+    "strength": 52.5,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 89
+    },
+    "price": 420,
+    "status": "available",
+    "description": "Als Teil der Vintner's Trilogy hat Bowmore diesen 18-Jährigen in seltenen Manzanilla-Sherryfässern gereift. Die hellen, trockenen Sherryaromen verbinden sich einzigartig mit dem typischen Islay-Torf zu einem elegant-maritimen Charakter. Eine der ungewöhnlicheren Fassexpeditionen aus der Bowmore-Trilogie.",
+    "images": [
+      "/images/whisky/img_8592.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "11",
+    "slug": "ardbeg-perpetuum",
+    "name": "Ardbeg Perpetuum",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 2015,
+    "bottled": 2015,
+    "age": null,
+    "cask": "Ex-Bourbon + Sherry",
+    "bottler": "OB",
+    "strength": 47.4,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 87
+    },
+    "price": 220,
+    "status": "available",
+    "description": "Ardbeg Perpetuum wurde zum 200-jährigen Jubiläum der Destillerie im Jahr 2015 abgefüllt und ist ein Tribut an die ewige Tradition des Ardbeg-Whiskys. Eine Vatting aus verschiedenen Fasstypen ergibt einen ausgewogenen, torfigen Malt mit Karamell, Tropenfrüchten und charakteristischem Rauch. Limitierte Jubiläumsabfüllung.",
+    "images": [
+      "/images/whisky/img_8593.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "12",
+    "slug": "macallan-edition-no-2",
+    "name": "Macallan Edition No. 2",
+    "distillery": "Macallan",
+    "region": "Speyside",
+    "country": "Schottland",
+    "vintage": 2016,
+    "bottled": 2016,
+    "age": null,
+    "cask": "Various Oak",
+    "bottler": "OB",
+    "strength": 48.2,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 86
+    },
+    "price": 280,
+    "status": "available",
+    "description": "Die zweite Ausgabe der Macallan Edition-Reihe zeigt die Zusammenarbeit der Destillerie mit dem Fasshändler Jas. D. Russell Inc. Diverse Eichenholz-Fasstypen ergeben ein vielschichtiges Aromenprofil mit Ingwerkuchen, Zimt, weißem Pfeffer und reifer roter Frucht. Elegant und zugänglich.",
+    "images": [
+      "/images/whisky/img_8594.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "13",
+    "slug": "highland-park-21-jahre",
+    "name": "Highland Park 21 Jahre",
+    "distillery": "Highland Park",
+    "region": "Orkney",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 21,
+    "cask": "Sherry + Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 47.5,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 91
+    },
+    "price": 420,
+    "status": "available",
+    "description": "Der Highland Park 21 Jahre vereint das Beste der Orkney-Inseln in einem ausgereiften Single Malt. Zwei Jahrzehnte in Sherry- und Ex-Bourbon-Fässern haben einen Malt mit tiefen Honignoten, Trockenfrüchten, Heidekraut und einem Hauch Torf entwickelt. Als einer der nördlichsten Single Malts Schottlands genießt er weltweiten Ruf.",
+    "images": [
+      "/images/whisky/img_8595.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "14",
+    "slug": "balvenie-15-jahre-single-barrel-sherry-cask",
+    "name": "Balvenie 15 Jahre Single Barrel Sherry Cask",
+    "distillery": "Balvenie",
+    "region": "Speyside",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 15,
+    "cask": "Sherry Cask",
+    "bottler": "OB",
+    "strength": 47.8,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 88
+    },
+    "price": 260,
+    "status": "available",
+    "description": "Der Balvenie 15 Jahre Single Barrel Sherry Cask ist eine authentische Einzelfassabfüllung aus einem einzigen Sherryfass. Jede Flasche ist nummeriert und trägt den persönlichen Stempel des Malt Masters. Intensiv fruchtige, süße Aromen von Rosinen, Karamell und Gewürzen prägen diesen unverwechselbaren Speyside-Charakter.",
+    "images": [
+      "/images/whisky/img_8596.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "15",
+    "slug": "talisker-25-jahre",
+    "name": "Talisker 25 Jahre",
+    "distillery": "Talisker",
+    "region": "Isle of Skye",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 25,
+    "cask": "Refill Casks",
+    "bottler": "OB",
+    "strength": 45.8,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 92
+    },
+    "price": 580,
+    "status": "available",
+    "description": "Der Talisker 25 Jahre ist eine jährlich limitierte Abfüllung der legendären Skye-Destillerie. Silbermedaillengewinner bei zahlreichen Wettbewerben, zeigt er nach einem Vierteljahrhundert Reifung eine beeindruckende Balance aus Rauch, Pfeffer, salziger Meeresbrise und reifen Früchten. Ein Meilenstein in Taliskers langer Geschichte.",
+    "images": [
+      "/images/whisky/img_8597.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "16",
+    "slug": "lagavulin-distillers-edition-1999-2015",
+    "name": "Lagavulin Distillers Edition 1999 2015",
+    "distillery": "Lagavulin",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 1999,
+    "bottled": 2015,
+    "age": 16,
+    "cask": "Pedro Ximenez Finish",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 88
+    },
+    "price": 200,
+    "status": "available",
+    "description": "Die Lagavulin Distillers Edition verbindet den klassischen 16-jährigen Lagavulin mit einem zweiten Finish in Pedro Ximenez Sherryfässern. Das Ergebnis ist eine süße-rauchige Harmonie aus Trockenfrüchten, Schokolade und Torf. 1999 destilliert und 2015 abgefüllt – eine elegante Doppelreifung.",
+    "images": [
+      "/images/whisky/img_8598.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "17",
+    "slug": "ardbeg-kelpie",
+    "name": "Ardbeg Kelpie",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 2017,
+    "bottled": 2017,
+    "age": null,
+    "cask": "Virgin Oak + Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 85
+    },
+    "price": 250,
+    "status": "available",
+    "description": "Der Ardbeg Kelpie, benannt nach dem mythischen Wassergeist der schottischen Folklore, wurde zum Ardbeg Day 2017 veröffentlicht. Russische Eiche aus dem Schwarzen Meer verleiht diesem Islay-Malt ungewöhnliche Süße und Würze. Karamell, Vanille und intensive Torfnoten ergeben eine faszinierende Kombination.",
+    "images": [
+      "/images/whisky/img_8600.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "18",
+    "slug": "ardbeg-twenty-one",
+    "name": "Ardbeg Twenty One",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 21,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 92
+    },
+    "price": 650,
+    "status": "available",
+    "description": "Der Ardbeg Twenty One ist eine äußerst seltene Langzeitabfüllung der Islay-Destillerie. Zwei Jahrzehnte in Ex-Bourbon-Fässern haben den intensiven Ardbeg-Torf zu einem außergewöhnlich vielschichtigen Malt transformiert. Medizinischer Rauch, reife Vanille, Zitrusfrüchte und Eiche – ein Ardbeg in seiner Hochform.",
+    "images": [
+      "/images/whisky/img_8601.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "19",
+    "slug": "bruichladdich-black-art-1990-edition-04-1",
+    "name": "Bruichladdich Black Art 1990 Edition 04.1",
+    "distillery": "Bruichladdich",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 1990,
+    "bottled": null,
+    "age": null,
+    "cask": "Undisclosed Casks",
+    "bottler": "OB",
+    "strength": 49.2,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 93
+    },
+    "price": 720,
+    "status": "available",
+    "description": "Die Black Art Serie von Bruichladdich ist das Geheimnis des Head Distillers Jim McEwan – die Fasstypen werden bewusst nicht offengelegt. Edition 04.1 aus dem Jahrgang 1990 offenbart ein opulentes, nicht-torfiges Islay-Profil mit exotischen Früchten, Gewürzen und einer geheimnisvollen Tiefe. Eine der begehrtesten Bruichladdich-Serien überhaupt.",
+    "images": [
+      "/images/whisky/img_8602.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "20",
+    "slug": "laphroaig-18-jahre",
+    "name": "Laphroaig 18 Jahre",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 18,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 48.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 89
+    },
+    "price": 320,
+    "status": "available",
+    "description": "Der Laphroaig 18 Jahre ist eine inzwischen eingestellte Abfüllung und damit ein gesuchtes Sammlerstück. 18 Jahre in Ex-Bourbon-Fässern haben den charakteristischen Laphroaig-Torf mit feinen Vanille-, Honig- und Zitrusnoten ergänzt. Ein ausgewogener, gereifter Islay-Malt der alten Schule.",
+    "images": [
+      "/images/whisky/img_8603.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "21",
+    "slug": "bowmore-18-yo-deep-and-complex",
+    "name": "Bowmore 18 YO Deep and Complex",
+    "distillery": "Bowmore",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 18,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 86
+    },
+    "price": 200,
+    "status": "available",
+    "description": "Bowmore 18 Jahre Deep and Complex ist ein zugänglicher Islay-Malt mit 18-jähriger Reifung in Ex-Bourbon-Fässern. Das für Bowmore typische Aromenprofil aus Tropenfrüchten, Torf und einer Spur Lavendel wird hier in einer ausgewogenen, trinkreifen Form präsentiert. Trocken, komplex und unverwechselbar Bowmore.",
+    "images": [
+      "/images/whisky/img_8604.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "22",
+    "slug": "glenfarclas-1989-christmas-edition-oloroso-sherry",
+    "name": "Glenfarclas 1989 Christmas Edition Oloroso Sherry",
+    "distillery": "Glenfarclas",
+    "region": "Speyside",
+    "country": "Schottland",
+    "vintage": 1989,
+    "bottled": null,
+    "age": null,
+    "cask": "Oloroso Sherry",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 89
+    },
+    "price": 460,
+    "status": "available",
+    "description": "Die Glenfarclas Christmas Edition aus dem Jahrgang 1989 ist eine festliche Spezialabfüllung für die Weihnachtszeit. In Oloroso-Sherryfässern vollständig gereift, zeigt sie das warmherzige Sherry-Profil der Familienbrennerei: Weihnachtskuchen, Rosinen, Haselnüsse und wärmende Gewürze. Ein Malt für besondere Anlässe.",
+    "images": [
+      "/images/whisky/img_8605.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "23",
+    "slug": "glenlivet-guardians-chapter",
+    "name": "Glenlivet Guardians Chapter",
+    "distillery": "Glenlivet",
+    "region": "Speyside",
+    "country": "Schottland",
+    "vintage": 2014,
+    "bottled": 2014,
+    "age": null,
+    "cask": "Triquestra Oak",
+    "bottler": "OB",
+    "strength": 53.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 83
+    },
+    "price": 160,
+    "status": "available",
+    "description": "Der Glenlivet Guardians Chapter entstand durch eine demokratische Abstimmung der Glenlivet Guardians Community aus drei Kandidaten-Whiskys. Die Reifung in Triquestra Oak verleiht diesem Cask Strength Malt ungewöhnliche Aromen aus drei verschiedenen Eichenholztypen. Ein Experiment in Fassinnovation.",
+    "images": [
+      "/images/whisky/img_8606.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "24",
+    "slug": "hakushu-12-jahre",
+    "name": "Hakushu 12 Jahre",
+    "distillery": "Hakushu",
+    "region": "Honshu",
+    "country": "Japan",
+    "vintage": null,
+    "bottled": null,
+    "age": 12,
+    "cask": "Ex-Bourbon + Sherry",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 87
+    },
+    "price": 300,
+    "status": "available",
+    "description": "Der Hakushu 12 Jahre stammt aus der japanischen Bergwald-Destillerie Suntorys und ist für seinen einzigartigen frischen, grünen Charakter bekannt. Leichter Torf, Kräuter, reife Früchte und japanische Minze ergeben ein unverwechselbares Aromenspiel. Aufgrund der Limitierung stark nachgefragt und inzwischen selten zu finden.",
+    "images": [
+      "/images/whisky/img_8607.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "25",
+    "slug": "laphroaig-15-jahre-200-years-limited-edition",
+    "name": "Laphroaig 15 Jahre 200 Years Limited Edition",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 2015,
+    "bottled": 2015,
+    "age": 15,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 87
+    },
+    "price": 320,
+    "status": "available",
+    "description": "Zum 200-jährigen Jubiläum der Destillerie im Jahr 2015 brachte Laphroaig diese limitierte 15-jährige Edition heraus. In klassischen Ex-Bourbon-Fässern gereift, vereint sie den ursprünglichen Laphroaig-Torfcharakter mit 15 Jahren Reifearomen. Eine historische Flasche aus dem Jubiläumsjahr der traditionsreichen Islay-Destillerie.",
+    "images": [
+      "/images/whisky/img_8608.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "26",
+    "slug": "laphroaig-lore",
+    "name": "Laphroaig Lore",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Ex-Bourbon + Sherry",
+    "bottler": "OB",
+    "strength": 48.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 84
+    },
+    "price": 120,
+    "status": "available",
+    "description": "Laphroaig Lore ist die reichhaltigste und komplexeste permanente Abfüllung der Destillerie. Eine Auswahl aus Ex-Bourbon- und Sherryfässern verschiedener Reifedauern ergibt einen vielschichtigen Malt mit Torf, tropischen Früchten, Dunklem Schokolade und Honig. Der Name Lore steht für das überlieferte Destillier-Wissen von Laphroaig.",
+    "images": [
+      "/images/whisky/img_8609.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "27",
+    "slug": "laphroaig-brodir-port-wood-finish",
+    "name": "Laphroaig Brodir Port Wood Finish",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Port Wood Finish",
+    "bottler": "OB",
+    "strength": 48.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 83
+    },
+    "price": 130,
+    "status": "available",
+    "description": "Der Laphroaig Brodir ist nach dem legendären wikingischen Seeräuber Brodir benannt und verbindet Laphroaig-Torf mit einem Finish in Portwein-Fässern. Rote Früchte, Schokolade und ein Hauch Portwein-Süße bilden eine ungewöhnliche, aber harmonische Ergänzung zum rauchigen Islay-Charakter. Für Experimentierfreudige.",
+    "images": [
+      "/images/whisky/img_8610.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "28",
+    "slug": "slyrs-rum-fass-finish",
+    "name": "Slyrs Rum Fass Finish",
+    "distillery": "Slyrs",
+    "region": "Oberbayern",
+    "country": "Deutschland",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Rum Cask Finish",
+    "bottler": "OB",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 82
+    },
+    "price": 85,
+    "status": "available",
+    "description": "Der Slyrs Rum Fass Finish aus der bayerischen Schliersee-Destillerie verbindet heimischen Charakter mit karibischer Note. Nach der Erstlagerung in neuen amerikanischen Eichenfässern folgt ein Finish in karibischen Rumfässern, das tropische Früchte, Vanille und eine leichte Süße einbringt. Bester bayerischer Whisky in der Rum-Finishreihe.",
+    "images": [
+      "/images/whisky/img_8611.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "29",
+    "slug": "caol-ila-18-jahre",
+    "name": "Caol Ila 18 Jahre",
+    "distillery": "Caol Ila",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 18,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 87
+    },
+    "price": 210,
+    "status": "available",
+    "description": "Caol Ila 18 Jahre ist der ausgereifte Vertreter der großen Islay-Destillerie – ein eleganter, rauchiger Malt mit maritimem Charakter. 18 Jahre in Ex-Bourbon-Fässern entwickeln Aromen von geräucherten Austern, Zitrusfrüchten, Vanille und weißem Pfeffer. Die etwas dezentere Islay-Alternative für Liebhaber torfiger Whiskys.",
+    "images": [
+      "/images/whisky/img_8612.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "30",
+    "slug": "glenmorangie-milsean",
+    "name": "Glenmorangie Milsean",
+    "distillery": "Glenmorangie",
+    "region": "Highlands",
+    "country": "Schottland",
+    "vintage": 2016,
+    "bottled": 2016,
+    "age": null,
+    "cask": "Re-toasted Wine Casks",
+    "bottler": "OB",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 85
+    },
+    "price": 200,
+    "status": "available",
+    "description": "Glenmorangie Milsean (gälisch für 'süß') aus der Exklusiven Private Edition-Reihe 2016 reift in nachgerösteten Weinfässern. Der einzigartige Prozess des Nachröstens der Fässer verleiht dem Whisky intensive Noten von roten Früchten, Karamell, Vanille und exotischen Gewürzen. Ein experimenteller Malt von seiner süßesten Seite.",
+    "images": [
+      "/images/whisky/img_8614.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "31",
+    "slug": "kavalan-solist-fino-sherry-cask",
+    "name": "Kavalan Solist Fino Sherry Cask",
+    "distillery": "Kavalan",
+    "region": "Yilan",
+    "country": "Taiwan",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Fino Sherry Cask",
+    "bottler": "OB",
+    "strength": 57.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 92
+    },
+    "price": 310,
+    "status": "available",
+    "description": "Der Kavalan Solist Fino Sherry Cask ist eine Einzelfassabfüllung aus der preisgekrönten taiwanesischen Destillerie. Gereift in seltenen Fino-Sherryfässern entwickelt der Malt intensive Noten von getrockneten Früchten, Mandeln, nussigem Sherry und feinen Gewürzen. Mit 57% Cask Strength ein kraftvoller Vertreter des asiatischen Whiskys.",
+    "images": [
+      "/images/whisky/img_8617.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "32",
+    "slug": "kavalan-single-malt",
+    "name": "Kavalan Single Malt",
+    "distillery": "Kavalan",
+    "region": "Yilan",
+    "country": "Taiwan",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 40.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 83
+    },
+    "price": 85,
+    "status": "available",
+    "description": "Der Kavalan Single Malt ist der Einstieg in das preisgekrönte Sortiment der taiwanesischen Kavalan Distillery. Das heiße und feuchte Klima Taiwans beschleunigt die Reifung und ergibt einen üppigen, fruchtig-süßen Charakter mit Tropenfrüchten, Honig und Vanille. Ideal als Einstieg in die asiatische Whisky-Welt.",
+    "images": [
+      "/images/whisky/img_8616.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "33",
+    "slug": "johnnie-walker-blue-label",
+    "name": "Johnnie Walker Blue Label",
+    "distillery": "Johnnie Walker",
+    "region": "Schottland",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Various",
+    "bottler": "OB",
+    "strength": 40.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 84
+    },
+    "price": 230,
+    "status": "available",
+    "description": "Der Johnnie Walker Blue Label ist das Aushängeschild der weltweit meistverkauften Scotch-Whisky-Marke. Aus sehr seltenen und alten Whiskyreserven zusammengestellt, bietet er ein seidiges, komplexes Profil aus Honig, Zimt, Räucherholz und feiner Frucht. Jede Flasche trägt eine individuelle Seriennummer.",
+    "images": [
+      "/images/whisky/img_8618.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "34",
+    "slug": "bruichladdich-octomore-10-jahre-167ppm",
+    "name": "Bruichladdich Octomore 10 Jahre 167ppm",
+    "distillery": "Bruichladdich",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 10,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 59.8,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 91
+    },
+    "price": 420,
+    "status": "available",
+    "description": "Der Bruichladdich Octomore gehört zu den am stärksten getorften Whiskys der Welt – mit 167 ppm Phenolgehalt eine Herausforderung für jeden Whisky-Liebhaber. Trotz der extremen Torfmenge zeigt er nach 10 Jahren Reifung in Ex-Bourbon-Fässern erstaunliche Süße und Balance. Der kompromissloseste Rauch-Whisky auf dem Markt.",
+    "images": [
+      "/images/whisky/img_8619.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "35",
+    "slug": "slyrs-12-jahre-edition-2004",
+    "name": "Slyrs 12 Jahre Edition 2004",
+    "distillery": "Slyrs",
+    "region": "Oberbayern",
+    "country": "Deutschland",
+    "vintage": 2004,
+    "bottled": null,
+    "age": 12,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 85
+    },
+    "price": 320,
+    "status": "available",
+    "description": "Der Slyrs 12 Jahre Jahrgang 2004 ist eine der ältesten Abfüllungen der bayerischen Vorzeige-Destillerie am Schliersee. Zwölf Jahre in amerikanischen Eichenfässern haben einen eleganten, malzigen Whisky mit Aromen von Vanille, Karamell, reifen Äpfeln und einem Hauch Mandel entwickelt. Ein Meilenstein des deutschen Whiskys.",
+    "images": [
+      "/images/whisky/img_8621.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "36",
+    "slug": "ardbeg-dark-cove",
+    "name": "Ardbeg Dark Cove",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 2016,
+    "bottled": 2016,
+    "age": null,
+    "cask": "Dark Sherry Casks",
+    "bottler": "OB",
+    "strength": 46.5,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 87
+    },
+    "price": 220,
+    "status": "available",
+    "description": "Ardbeg Dark Cove wurde zum Ardbeg Day 2016 mit der Idee veröffentlicht, Torf und Dunkelheit zu erforschen. Die Reifung in dunklen Sherryfässern verleiht diesem Islay-Malt intensive schokoladige und dunkle Fruchtnoten, die perfekt mit dem typischen Ardbeg-Rauch harmonieren. Eine der dunkelsten Ardbeg-Editionen.",
+    "images": [
+      "/images/whisky/img_8623.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "37",
+    "slug": "ardbeg-uigeadail",
+    "name": "Ardbeg Uigeadail",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
     "age": null,
     "cask": "Oloroso Sherry + Ex-Bourbon",
     "bottler": "OB",
     "strength": 54.2,
     "volume": 700,
     "condition": "sealed",
-    "rating": { "source": "Whisky Bible", "score": 94 },
-    "price": 450,
+    "rating": {
+      "source": "Whiskybase",
+      "score": 92
+    },
+    "price": 120,
     "status": "available",
-    "description": "Der Uigeadail aus 2008 ist noch mit der alten Rezeptur. Starker Torf (55 ppm), Oloroso-Sherry, dunkle Schokolade und Kaffee. Weltwhisky des Jahres 2009.",
-    "images": ["https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=800&q=80"],
-    "packIds": ["islay-selection"],
-    "featured": false
-  },
-  {
-    "id": "5",
-    "slug": "glenfarclas-family-casks-1966",
-    "name": "Glenfarclas Family Casks 1966",
-    "distillery": "Glenfarclas",
-    "region": "Speyside",
-    "country": "Schottland",
-    "vintage": 1966,
-    "bottled": 2007,
-    "age": 41,
-    "cask": "Sherry Butt #4374",
-    "bottler": "OB",
-    "strength": 46.0,
-    "volume": 700,
-    "condition": "sealed",
-    "rating": { "source": "Whisky Magazine", "score": 95 },
-    "price": 3200,
-    "status": "available",
-    "description": "41 Jahre im Sherryfass – das ist Glenfarclas in seiner reinsten Form. Getrocknete Früchte, Toffee, alte Eiche und ein Hauch von Leder. Eine der großen Speyside-Raritäten.",
-    "images": ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"],
+    "description": "Der Ardbeg Uigeadail, benannt nach dem Reservoir der Destillerie, gilt als einer der besten No-Age-Statement Whiskys der Welt. Die Kombination aus Oloroso-Sherry- und Ex-Bourbon-Fässern ergibt einen außergewöhnlich komplexen, preisgedekrönten Malt mit Kaffee, Schokolade, Trockenfrüchten und intensivem Rauch. Weltwhisky des Jahres 2009.",
+    "images": [
+      "/images/whisky/img_8624.jpg"
+    ],
     "packIds": [],
     "featured": false
   },
   {
-    "id": "6",
-    "slug": "springbank-local-barley-2011",
-    "name": "Springbank Local Barley 2011",
-    "distillery": "Springbank",
-    "region": "Campbeltown",
-    "country": "Schottland",
-    "vintage": 2011,
-    "bottled": 2022,
-    "age": 11,
-    "cask": "Bourbon + Sherry",
-    "bottler": "OB",
-    "strength": 53.5,
-    "volume": 700,
-    "condition": "sealed",
-    "rating": { "source": "WhiskyFun", "score": 91 },
-    "price": 380,
-    "status": "available",
-    "description": "Springbank Local Barley aus eigenem Anbau, ungetorft und komplett handgemacht. Buttrig, malzig, leicht salzig mit Vanille und Birne. Eines der ehrlichsten Whiskys Schottlands.",
-    "images": ["https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"],
-    "packIds": [],
-    "featured": false
-  },
-  {
-    "id": "7",
-    "slug": "bowmore-1968-32-years",
-    "name": "Bowmore 1968 32 Years",
-    "distillery": "Bowmore",
-    "region": "Islay",
-    "country": "Schottland",
-    "vintage": 1968,
-    "bottled": 2000,
-    "age": 32,
-    "cask": "Oloroso Sherry Butt",
-    "bottler": "Signatory",
-    "strength": 42.1,
-    "volume": 700,
-    "condition": "sealed",
-    "rating": { "source": "Serge Valentin", "score": 96 },
-    "price": 5200,
-    "status": "reserved",
-    "description": "Ein legendärer Bowmore aus den 1968er Jahren, 32 Jahre im Oloroso-Sherryfass. Tropische Früchte (die typischen Bowmore-Ananas-Noten), Rauch, Torf und Schokolade. Kaum zu übertreffen.",
-    "images": ["https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=800&q=80"],
-    "packIds": ["islay-selection"],
-    "featured": false
-  },
-  {
-    "id": "8",
-    "slug": "bruichladdich-octomore-06-3",
-    "name": "Bruichladdich Octomore 06.3",
-    "distillery": "Bruichladdich",
+    "id": "38",
+    "slug": "ardbeg-corryvreckan",
+    "name": "Ardbeg Corryvreckan",
+    "distillery": "Ardbeg",
     "region": "Islay",
     "country": "Schottland",
     "vintage": null,
-    "bottled": 2015,
-    "age": 5,
-    "cask": "Virgin American Oak",
+    "bottled": null,
+    "age": null,
+    "cask": "French Oak + Ex-Bourbon",
     "bottler": "OB",
-    "strength": 64.0,
+    "strength": 57.1,
     "volume": 700,
     "condition": "sealed",
-    "rating": { "source": "Whisky Bible", "score": 92 },
-    "price": 320,
+    "rating": {
+      "source": "Whiskybase",
+      "score": 90
+    },
+    "price": 125,
     "status": "available",
-    "description": "Der Octomore 06.3 mit 258 ppm ist einer der am stärksten getorften Whiskys der Welt. Trotz extremem Torf elegant und komplex, mit Vanille, Limone und Asche. Nur 5 Jahre alt.",
-    "images": ["https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"],
-    "packIds": ["islay-selection"],
+    "description": "Benannt nach dem berüchtigten Corryvreckan Whirlpool vor der schottischen Küste, ist dieser Ardbeg so kraftvoll wie sein Namensgeber. Neues französisches Eichenholz fügt Lavendel, Pfeffer und intensive Würze hinzu, während die Ex-Bourbon-Fässer Vanille und Zitrus beisteuern. Mit 57,1% ein Kraftpaket unter den Ardbeg-Standardabfüllungen.",
+    "images": [
+      "/images/whisky/img_8625.jpg"
+    ],
+    "packIds": [],
     "featured": false
   },
   {
-    "id": "9",
-    "slug": "macallan-18-years-sherry-oak-2004",
-    "name": "Macallan 18 Years Sherry Oak 2004",
+    "id": "39",
+    "slug": "ardbog",
+    "name": "Ardbog",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 2013,
+    "bottled": 2013,
+    "age": null,
+    "cask": "Moine Malt + Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 52.1,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 88
+    },
+    "price": 320,
+    "status": "available",
+    "description": "Ardbog wurde zum Ardbeg Day 2013 veröffentlicht und kombiniert Ardbeg-Destillat mit Moine-Malt aus dem Bruichladdich-Portfolio. Die einzigartige Kombination aus zwei Islay-Malts ergibt intensive Torf- und Mooraromen, ergänzt durch süße Ex-Bourbon-Noten von Karamell und Vanille. Ein außergewöhnliches Gemeinschaftsprojekt der Islay-Destillerien.",
+    "images": [
+      "/images/whisky/img_8626.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "40",
+    "slug": "ardbeg-galileo-1999",
+    "name": "Ardbeg Galileo 1999",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 1999,
+    "bottled": null,
+    "age": 12,
+    "cask": "Marsala Wine Casks",
+    "bottler": "OB",
+    "strength": 49.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 91
+    },
+    "price": 520,
+    "status": "available",
+    "description": "Ardbeg Galileo wurde zum Ardbeg Day 2012 veröffentlicht und enthielt sogar eine Portion Whisky, der tatsächlich die Erde im Weltraum umkreist hatte. Der 1999er Jahrgang mit Marsala-Weinfass-Finish zeigt intensive rote Früchte, Traube und ein süßes Weinaroma neben dem klassischen Torfrauch. Ein kosmisches Whisky-Experiment.",
+    "images": [
+      "/images/whisky/img_8627.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "41",
+    "slug": "kavalan-solist-peaty-cask",
+    "name": "Kavalan Solist Peaty Cask",
+    "distillery": "Kavalan",
+    "region": "Yilan",
+    "country": "Taiwan",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Peaty Cask",
+    "bottler": "OB",
+    "strength": 51.6,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 89
+    },
+    "price": 290,
+    "status": "available",
+    "description": "Der Kavalan Solist Peaty Cask beweist, dass auch Taiwan beeindruckende Rauch-Whiskys produzieren kann. In Peaty Casks gereift, verbindet er den üppigen, tropisch-fruchtigen Kavalan-Charakter mit delikaten Torfnoten. Eine ungewöhnliche, spannende Kombination aus asiatischer Destillierkunst und schottischer Fassinspiration.",
+    "images": [
+      "/images/whisky/img_8628.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "42",
+    "slug": "kavalan-solist-vinho-barrique",
+    "name": "Kavalan Solist Vinho Barrique",
+    "distillery": "Kavalan",
+    "region": "Yilan",
+    "country": "Taiwan",
+    "vintage": null,
+    "bottled": null,
+    "age": null,
+    "cask": "Vinho Barrique",
+    "bottler": "OB",
+    "strength": 57.1,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 92
+    },
+    "price": 310,
+    "status": "available",
+    "description": "Der Kavalan Solist Vinho Barrique wurde zu einem der meistdiskutierten Whiskys weltweit – er gewann 2015 blind in einem Vergleichstasting gegen klassische Scotch Whiskys. Gereift in portugiesischen Weinfässern (Vinho Verde) entwickelt er intensive tropische Früchte, Vanille, exotische Gewürze und eine beeindruckende Tiefe.",
+    "images": [
+      "/images/whisky/img_8629.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "43",
+    "slug": "glenmorangie-25-jahre-quarter-century",
+    "name": "Glenmorangie 25 Jahre Quarter Century",
+    "distillery": "Glenmorangie",
+    "region": "Highlands",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 25,
+    "cask": "Ex-Bourbon + Sherry",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 91
+    },
+    "price": 520,
+    "status": "available",
+    "description": "Der Glenmorangie 25 Jahre Quarter Century ist ein beeindruckendes Statement der Highland-Destillerie zu einem Vierteljahrhundert Reifung. Ex-Bourbon- und Sherryfässer kombinieren sich zu einem eleganten, üppigen Malt mit Honig, Mandeln, reifen Früchten und subtilen Gewürzen. Einer der besten Glenmorangies aller Zeiten.",
+    "images": [
+      "/images/whisky/img_8632.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "44",
+    "slug": "laphroaig-25-jahre-2014-cask-strength",
+    "name": "Laphroaig 25 Jahre 2014 Cask Strength",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2014,
+    "age": 25,
+    "cask": "Oloroso Sherry + Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 49.5,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 91
+    },
+    "price": 520,
+    "status": "available",
+    "description": "Die Laphroaig 25 Jahre Cask Strength Edition 2014 ist eine der begehrten jährlichen Abfüllungen dieser Altersklasse. 25 Jahre in Oloroso-Sherry und Ex-Bourbon-Fässern haben einen tiefen, komplexen Malt ergeben: Medizinischer Torf, getrocknete Früchte, Leder und Räucherholz in beeindruckender Komplexität. Limitiert und hoch geschätzt.",
+    "images": [
+      "/images/whisky/img_8635.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "45",
+    "slug": "bowmore-25-jahre-small-batch-release",
+    "name": "Bowmore 25 Jahre Small Batch Release",
+    "distillery": "Bowmore",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 25,
+    "cask": "Ex-Bourbon + Sherry",
+    "bottler": "OB",
+    "strength": 43.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 90
+    },
+    "price": 400,
+    "status": "available",
+    "description": "Der Bowmore 25 Jahre Small Batch Release präsentiert die Destillerie von ihrer elegantesten Seite. Eine Auswahl aus Ex-Bourbon- und Sherryfässern ergibt nach 25 Jahren einen reifen, ausgewogenen Islay-Malt mit mildem Torf, Tropenfrüchten, Toffee und dezenten Sherry-Noten. Small Batch bedeutet höchste Sorgfalt in der Auswahl.",
+    "images": [
+      "/images/whisky/img_8637.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "46",
+    "slug": "macallan-21-jahre-fine-oak-triple-cask",
+    "name": "Macallan 21 Jahre Fine Oak Triple Cask",
     "distillery": "Macallan",
     "region": "Speyside",
     "country": "Schottland",
     "vintage": null,
-    "bottled": 2004,
-    "age": 18,
-    "cask": "Sherry Oak",
+    "bottled": null,
+    "age": 21,
+    "cask": "Triple Cask Matured",
     "bottler": "OB",
     "strength": 43.0,
     "volume": 700,
-    "condition": "opened",
-    "rating": { "source": "Whisky Magazine", "score": 90 },
-    "price": 850,
-    "status": "sold",
-    "description": "Der klassische Macallan 18 in der alten Sherry Oak Abfüllung von 2004. Vollständig in Sherryfässern gereift. Rosinen, Orange, Gewürze, Schokolade. Referenz-Speyside.",
-    "images": ["https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=800&q=80"],
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 90
+    },
+    "price": 460,
+    "status": "available",
+    "description": "Der Macallan 21 Jahre Fine Oak Triple Cask Matured entstammt der inzwischen eingestellten Fine Oak-Linie und kombiniert drei Fasstypen: amerikanische und europäische Ex-Sherry-Fässer sowie amerikanische Ex-Bourbon-Fässer. Das Ergebnis ist ein eleganter, zugänglicher Macallan mit Früchten, Vanille, Gewürzen und einem Hauch Sherry.",
+    "images": [
+      "/images/whisky/img_8639.jpg"
+    ],
     "packIds": [],
     "featured": false
   },
   {
-    "id": "10",
-    "slug": "karuizawa-1983-geisha",
-    "name": "Karuizawa 1983 Geisha Label",
-    "distillery": "Karuizawa",
-    "region": "Honshu",
-    "country": "Japan",
-    "vintage": 1983,
-    "bottled": 2013,
-    "age": 29,
-    "cask": "Sherry Butt #3663",
-    "bottler": "Number One Drinks",
-    "strength": 59.4,
+    "id": "47",
+    "slug": "lagavulin-25-jahre-200th-anniversary",
+    "name": "Lagavulin 25 Jahre 200th Anniversary",
+    "distillery": "Lagavulin",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 2016,
+    "bottled": 2016,
+    "age": 25,
+    "cask": "Sherry Oak Casks",
+    "bottler": "OB",
+    "strength": 51.3,
     "volume": 700,
     "condition": "sealed",
-    "rating": { "source": "Whisky Advocate", "score": 98 },
-    "price": 8500,
+    "rating": {
+      "source": "Whiskybase",
+      "score": 95
+    },
+    "price": 1050,
     "status": "available",
-    "description": "Das berühmte Geisha-Label von Karuizawa, Jahrgang 1983. Dichte Sherrynoten, Pflaume, dunkle Bitterschokolade, Tabak und exotische Gewürze. Eine absolute Ikone der japanischen Whiskygeschichte.",
-    "images": ["https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&crop=entropy&w=800&q=80"],
+    "description": "Diese Sonderabfüllung zum 200-jährigen Jubiläum der Lagavulin Destillerie im Jahr 2016 ist eine historische Rarität. 25 Jahre in Sherry Oak Casks gereift und mit 51,3% abgefüllt, zeigt sie das volle Potenzial des Lagavulin-Stils: intensiver Torf, reichhaltige Sherryfrucht, Schokolade und eine endlose komplexe Länge. Eine Ikone der Islay-Whisky-Geschichte.",
+    "images": [
+      "/images/whisky/img_8641.jpg"
+    ],
     "packIds": [],
     "featured": true
+  },
+  {
+    "id": "48",
+    "slug": "laphroaig-32-jahre-limited-edition",
+    "name": "Laphroaig 32 Jahre Limited Edition",
+    "distillery": "Laphroaig",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 32,
+    "cask": "Hogsheads",
+    "bottler": "OB",
+    "strength": 46.6,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 94
+    },
+    "price": 1250,
+    "status": "available",
+    "description": "Der Laphroaig 32 Jahre Limited Edition ist eine außergewöhnliche Langzeitabfüllung der berühmten Islay-Destillerie. Über drei Jahrzehnte Reifung in Hogsheads haben einen Malt von außergewöhnlicher Tiefe und Eleganz entwickelt: Rauch, Salz und Torf verbinden sich mit reifen Früchten, Leder und altem Eichenholz zu einem unvergesslichen Trinkerlebnis.",
+    "images": [
+      "/images/whisky/img_8643.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "49",
+    "slug": "glendronach-allardice-18-jahre",
+    "name": "GlenDronach Allardice 18 Jahre",
+    "distillery": "GlenDronach",
+    "region": "Highlands",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": null,
+    "age": 18,
+    "cask": "Oloroso Sherry",
+    "bottler": "OB",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 88
+    },
+    "price": 130,
+    "status": "available",
+    "description": "Der GlenDronach Allardice 18 Jahre ist vollständig in Oloroso-Sherryfässern gereift und gilt als Referenzabfüllung für Sherry-Liebhaber. Intensive Noten von Weihnachtskuchen, Rosinen, Ingwer, Schokolade und Leder prägen diesen kraftvollen Highlands-Malt. Nicht kühlgefiltert und mit natürlicher Farbe – authentisch und pur.",
+    "images": [
+      "/images/whisky/img_8647.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "50",
+    "slug": "invergordon-42-jahre-1973-wilson-and-morgan",
+    "name": "Invergordon 42 Jahre 1973 Wilson and Morgan",
+    "distillery": "Invergordon",
+    "region": "Highlands",
+    "country": "Schottland",
+    "vintage": 1973,
+    "bottled": null,
+    "age": 42,
+    "cask": "Single Grain Hogshead",
+    "bottler": "Wilson and Morgan",
+    "strength": 46.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 93
+    },
+    "price": 680,
+    "status": "available",
+    "description": "Dieser Invergordon Single Grain von 1973, abgefüllt von den renommierten Independent Bottlern Wilson and Morgan nach 42 Jahren, ist eine absolute Rarität. Single Grain Scotch aus dieser Ära ist extrem selten – die langen Jahrzehnte in einem einzigen Hogshead haben einen seidig-süßen Charakter mit Karamell, Kokosnuss, Vanille und exotischen Früchten entwickelt.",
+    "images": [
+      "/images/whisky/img_8649.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "51",
+    "slug": "ardbeg-1815-limited-edition",
+    "name": "Ardbeg 1815 Limited Edition",
+    "distillery": "Ardbeg",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": 2015,
+    "bottled": 2015,
+    "age": null,
+    "cask": "Ex-Bourbon",
+    "bottler": "OB",
+    "strength": 50.1,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 93
+    },
+    "price": 5000,
+    "status": "available",
+    "description": "Ardbeg 1815 wurde zum Ardbeg Day 2015 veröffentlicht und erinnert an das Gründungsjahr der Destillerie. Diese außergewöhnlich rare Sonderabfüllung – nur 400 Flaschen weltweit – enthält eine Vatting aus Fässern von 1974 und 1975 und gilt als eine der seltensten Ardbeg-Abfüllungen aller Zeiten. Mit einem Marktpreis von über 5.000 EUR ist dies ein absolutes Sammlerstück.",
+    "images": [
+      "/images/whisky/img_8651.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "52",
+    "slug": "blair-athol-23-jahre-diageo-sr-2017",
+    "name": "Blair Athol 23 Jahre Diageo SR 2017",
+    "distillery": "Blair Athol",
+    "region": "Highlands",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 23,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 55.7,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 87
+    },
+    "price": 300,
+    "status": "available",
+    "description": "Der Blair Athol 23 Jahre aus den Diageo Special Releases 2017 ist eine seltene Offizielle Abfüllung dieser wenig bekannten Highlands-Destillerie. 23 Jahre in Refill Hogsheads bei natürlichem Druck ergeben einen robusten, würzigen Malt mit Noten von Frucht, Eichenholz, Leder und Gewürzen. Eine der versteckten Schätze der Diageo-Serie.",
+    "images": [
+      "/images/whisky/img_8653.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "53",
+    "slug": "brora-34-jahre-diageo-sr-2017",
+    "name": "Brora 34 Jahre Diageo SR 2017",
+    "distillery": "Brora",
+    "region": "Highlands",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 34,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 51.9,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 96
+    },
+    "price": 2000,
+    "status": "available",
+    "description": "Brora ist eine der begehrtesten geschlossenen Destillerien Schottlands – 1983 stillgelegt, werden ihre Abfüllungen von Jahr zu Jahr seltener und wertvoller. Der 34-Jährige aus den Diageo Special Releases 2017 zeigt den einzigartigen Brora-Charakter: leichter Torf, Wachsnoten, Tropenfrüchte und außergewöhnliche Würze. Absolutes Sammlerstück.",
+    "images": [
+      "/images/whisky/img_8653.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "54",
+    "slug": "caol-ila-18-jahre-diageo-sr-2017",
+    "name": "Caol Ila 18 Jahre Diageo SR 2017",
+    "distillery": "Caol Ila",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 18,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 59.2,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 88
+    },
+    "price": 280,
+    "status": "available",
+    "description": "Der Caol Ila 18 Jahre aus den Diageo Special Releases 2017 präsentiert diese Islay-Destillerie auf Cask-Strength-Niveau. Die höhere Alkoholstärke von 59,2% bringt intensive, würzige Torfnoten hervor, ergänzt durch Zitrusfrüchte, Meersalz und Vanille aus den Refill Hogsheads. Ein kraftvoller, authentischer Islay-Malt.",
+    "images": [
+      "/images/whisky/img_8653.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "55",
+    "slug": "convalmore-28-jahre-diageo-sr-2017",
+    "name": "Convalmore 28 Jahre Diageo SR 2017",
+    "distillery": "Convalmore",
+    "region": "Speyside",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 28,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 57.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 90
+    },
+    "price": 1050,
+    "status": "available",
+    "description": "Convalmore ist eine 1985 geschlossene Speyside-Destillerie, deren Abfüllungen zu den rarsten Scotch-Whiskys überhaupt gehören. Dieser 28-Jährige aus den Diageo Special Releases 2017 ist eine der letzten offiziellen Abfüllungen dieser verlorenen Destillerie: weiche Früchte, Eichenholz, Vanille und eine elegante Speyside-Komplexität. Unverzichtbar für Sammler.",
+    "images": [
+      "/images/whisky/img_8653.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "56",
+    "slug": "glen-elgin-18-jahre-diageo-sr-2017",
+    "name": "Glen Elgin 18 Jahre Diageo SR 2017",
+    "distillery": "Glen Elgin",
+    "region": "Speyside",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 18,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 54.8,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 86
+    },
+    "price": 280,
+    "status": "available",
+    "description": "Glen Elgin ist vor allem als Hauptbestandteil des White Horse Blends bekannt, wird aber selten als Single Malt abgefüllt. Diese 18-jährige Abfüllung aus den Diageo Special Releases 2017 gibt einen seltenen Einblick in den Charakter der Destillerie: fruchtige Speyside-Eleganz mit Honig, Blüten und dezenten Würznoten bei kraftvoller Cask Strength.",
+    "images": [
+      "/images/whisky/img_8654.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "57",
+    "slug": "lagavulin-12-jahre-diageo-sr-2017",
+    "name": "Lagavulin 12 Jahre Diageo SR 2017",
+    "distillery": "Lagavulin",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 12,
+    "cask": "Refill American Oak",
+    "bottler": "Diageo Special Releases",
+    "strength": 56.5,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 90
+    },
+    "price": 360,
+    "status": "available",
+    "description": "Der jährlich erscheinende Lagavulin 12 Jahre Cask Strength aus den Special Releases ist unter Whisky-Enthusiasten heiß begehrt. Die 2017er Ausgabe zeigt bei 56,5% ungefiltertem Islay-Torf in seiner reinsten Form: kraftvoll, rauchig, salzig und dennoch erstaunlich komplex mit Vanille und Früchten aus den Refill American Oak Casks.",
+    "images": [
+      "/images/whisky/img_8654.jpg"
+    ],
+    "packIds": [],
+    "featured": false
+  },
+  {
+    "id": "58",
+    "slug": "port-dundas-52-jahre-diageo-sr-2017",
+    "name": "Port Dundas 52 Jahre Diageo SR 2017",
+    "distillery": "Port Dundas",
+    "region": "Lowlands",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 52,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 50.5,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 93
+    },
+    "price": 1200,
+    "status": "available",
+    "description": "Der Port Dundas 52 Jahre aus den Diageo Special Releases 2017 ist eine absolute Rarität – 52 Jahre Reifung in einem Refill Hogshead aus einer Destillerie, die 2010 geschlossen wurde. Das hohe Alter zeigt sich in einer seidenartig-komplexen Tiefe mit Noten von altem Holz, Trockenfrüchten, Leder, Vanille und einer bemerkenswerten Frische. Ein Destillat für die Geschichtsbücher.",
+    "images": [
+      "/images/whisky/img_8654.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "59",
+    "slug": "port-ellen-37-jahre-diageo-sr-2017",
+    "name": "Port Ellen 37 Jahre Diageo SR 2017",
+    "distillery": "Port Ellen",
+    "region": "Islay",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 37,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 56.2,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 97
+    },
+    "price": 3600,
+    "status": "available",
+    "description": "Port Ellen ist die heilige Grotte des Islay-Whiskys – 1983 geschlossen, gelten ihre Abfüllungen als ultimative Raritäten. Dieser 37-Jährige aus den Diageo Special Releases 2017 ist eine der letzten offiziellen Abfüllungen dieser Legende: Torf, Rauch, Salz und Meeresfrüchte von unvergleichlicher Tiefe und Eleganz. Eine einmalige Gelegenheit.",
+    "images": [
+      "/images/whisky/img_8654.jpg"
+    ],
+    "packIds": [],
+    "featured": true
+  },
+  {
+    "id": "60",
+    "slug": "teaninich-17-jahre-diageo-sr-2017",
+    "name": "Teaninich 17 Jahre Diageo SR 2017",
+    "distillery": "Teaninich",
+    "region": "Highlands",
+    "country": "Schottland",
+    "vintage": null,
+    "bottled": 2017,
+    "age": 17,
+    "cask": "Refill Hogshead",
+    "bottler": "Diageo Special Releases",
+    "strength": 55.0,
+    "volume": 700,
+    "condition": "sealed",
+    "rating": {
+      "source": "Whiskybase",
+      "score": 86
+    },
+    "price": 280,
+    "status": "available",
+    "description": "Teaninich ist eine der produktivsten, aber selten als Single Malt erhältlichen Highlands-Destillerien. Dieser 17-Jährige aus den Diageo Special Releases 2017 gibt einen raren Einblick in den Charakter: grasig-würzige Highlands-Aromen mit Zitrusfrüchten, weißem Pfeffer und dezenten Holznoten. Bei 55% Cask Strength ein ungewöhnlicher, interessanter Vertreter.",
+    "images": [
+      "/images/whisky/img_8654.jpg"
+    ],
+    "packIds": [],
+    "featured": false
   }
 ]

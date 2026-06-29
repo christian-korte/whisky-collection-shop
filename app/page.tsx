@@ -13,7 +13,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-[#1a1000] to-[#0f0f0f] py-24 px-4">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1920&q=80')" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a1000]/60 to-[#0f0f0f]/80" />
         <div className="max-w-4xl mx-auto text-center relative">
