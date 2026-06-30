@@ -30,6 +30,11 @@ export default function Navigation() {
             <Link href="/impressum" className="text-[#f5f0e8]/80 hover:text-amber-400 transition-colors text-sm font-medium">
               Impressum
             </Link>
+            <Link href="/admin/login" className="text-[#f5f0e8]/40 hover:text-amber-400 transition-colors" aria-label="Admin-Login" title="Admin-Login">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 10-8 0v4h8z" />
+              </svg>
+            </Link>
           </div>
 
           <button
@@ -52,6 +57,7 @@ export default function Navigation() {
             <Link href="/katalog" className="text-[#f5f0e8]/80 hover:text-amber-400 transition-colors" onClick={() => setMenuOpen(false)}>Katalog</Link>
             <Link href="/pakete" className="text-[#f5f0e8]/80 hover:text-amber-400 transition-colors" onClick={() => setMenuOpen(false)}>Pakete</Link>
             <Link href="/impressum" className="text-[#f5f0e8]/80 hover:text-amber-400 transition-colors" onClick={() => setMenuOpen(false)}>Impressum</Link>
+            <Link href="/admin/login" className="text-[#f5f0e8]/40 hover:text-amber-400 transition-colors" onClick={() => setMenuOpen(false)}>Admin-Login</Link>
           </div>
         )}
       </div>
