@@ -7,3 +7,4 @@ build/
 *.log
 .next/
 .admin-credentials.txt
+tsconfig.tsbuildinfo
