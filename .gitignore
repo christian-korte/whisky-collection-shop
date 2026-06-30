@@ -6,3 +6,4 @@ dist/
 build/
 *.log
 .next/
+.admin-credentials.txt

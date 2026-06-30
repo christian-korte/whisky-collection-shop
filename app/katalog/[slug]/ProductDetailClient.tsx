@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import useEmblaCarousel from 'embla-carousel-react'
 import { WhiskyProduct } from '@/types'
 import StatusBadge from '@/components/StatusBadge'
 import KaufanfrageModal from '@/components/KaufanfrageModal'
@@ -11,6 +12,19 @@ import PrivatverkaufBanner from '@/components/PrivatverkaufBanner'
 export default function ProductDetailClient({ product }: { product: WhiskyProduct }) {
   const [selectedImage, setSelectedImage] = useState(0)
   const [modalOpen, setModalOpen] = useState(false)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+
+  // Sync selectedImage state when carousel scrolls (e.g. via swipe)
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedImage(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    emblaApi.on('select', onSelect)
+    return () => { emblaApi.off('select', onSelect) }
+  }, [emblaApi, onSelect])
 
   const details: { label: string; value: string | number | null }[] = [
     { label: 'Destillerie', value: product.distillery },
@@ -40,22 +54,32 @@ export default function ProductDetailClient({ product }: { product: WhiskyProduc
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Images */}
         <div>
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#111] mb-4">
-            <Image
-              src={product.images[selectedImage] || product.images[0]}
-              alt={product.name}
-              fill
-              className="object-cover"
-              unoptimized
-              priority
-            />
+          {/* Embla Carousel — supports swipe on touch devices */}
+          <div className="overflow-hidden rounded-2xl bg-[#111] mb-4" ref={emblaRef}>
+            <div className="flex">
+              {product.images.map((img, i) => (
+                <div key={i} className="flex-none w-full relative aspect-[4/3]">
+                  <Image
+                    src={img}
+                    alt={`${product.name} – Bild ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                    priority={i === 0}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           {product.images.length > 1 && (
             <div className="flex gap-3">
               {product.images.map((img, i) => (
                 <button
                   key={i}
-                  onClick={() => setSelectedImage(i)}
+                  onClick={() => {
+                    setSelectedImage(i)
+                    emblaApi?.scrollTo(i)
+                  }}
                   className={`relative w-20 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
                     i === selectedImage ? 'border-amber-500' : 'border-transparent'
                   }`}

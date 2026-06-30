@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAllPacks, getProductsByIds } from '@/lib/products'
+
+export const dynamic = 'force-dynamic'
 import PrivatverkaufBanner from '@/components/PrivatverkaufBanner'
 import StatusBadge from '@/components/StatusBadge'
 

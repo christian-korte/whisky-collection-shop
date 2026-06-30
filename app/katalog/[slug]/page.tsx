@@ -1,11 +1,8 @@
 import { notFound } from 'next/navigation'
-import { getAllProducts, getProductBySlug } from '@/lib/products'
+import { getProductBySlug } from '@/lib/products'
 import ProductDetailClient from './ProductDetailClient'
 
-export async function generateStaticParams() {
-  const products = getAllProducts()
-  return products.map(p => ({ slug: p.slug }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug)

@@ -153,7 +153,7 @@ Am Ende: git push origin master
 
 ---
 
-## Asana-Integration: Pflicht
+## Asana-Integration: Pflicht (Robi-Profil, n8n@cohrteam.de)
 
 Jeder Agent MUSS den Fortschritt direkt in Asana Projekt 1216032619928754 per curl aktualisieren.
 Der ASANA_PAT ist als Umgebungsvariable gesetzt.
@@ -263,3 +263,139 @@ Nach jedem fertiggestellten Dokument committen und pushen:
 ### Zeitpunkt
 Dokumentation entsteht parallel zur Implementierung, nicht erst am Ende.
 Nach Abschluss jedes grossen Features das entsprechende Dokument aktualisieren.
+---
+
+
+
+## AKTUELLER TASK: Admin-Verwaltungsbereich, Header-Bild, Swipe-Galerie (2026-06-30)
+
+### Prioritaet: HOCH - jetzt ausfuehren
+
+### WICHTIG: Diesmal als echtes Team arbeiten
+Bearbeite diese Aufgabe NICHT alleine im Hauptkontext. Zerlege sie wie im Abschnitt
+"Verfuegbare Spezialisten" beschrieben und spawne echte Subagenten ueber das Task-Tool:
+- security: Login/Auth-System (JWT, Middleware, Passwort-Hashing)
+- backend: CRUD-API-Routen, Datei-Upload, Datenzugriffsschicht
+- ui: Admin-Dashboard/Formulare, Header-Bild, Swipe-Galerie
+- devops: Build, .env Pflege, Server-Neustart, Git
+- qa: End-to-End-Test aller Flows bevor du "fertig" meldest
+Fuehre am Ende eine Konsistenzpruefung durch (einheitliches Tailwind-Styling).
+
+### Ziel
+Admin-Login fuer Christian Korte + Verwaltungsbereich um den Bestand vollstaendig zu pflegen:
+Bestand verwalten, Beschreibungen anpassen, Bilder ergaenzen/loeschen, neue Whiskys anlegen,
+Whiskys loeschen, Preise aendern, Status auf verkauft/reserviert/verfuegbar setzen.
+
+### Architektur-Vorgaben (bitte exakt so umsetzen, das spart Rueckfragen)
+
+**Auth:**
+- Neue npm-Pakete sind fuer dieses Feature ausdruecklich erlaubt: bcryptjs, jose
+  (jose statt jsonwebtoken, da Next.js Middleware im Edge-Runtime laeuft und jsonwebtoken dort nicht funktioniert)
+- Env-Variablen in .env (NICHT committen, .env.example nur mit leeren Platzhaltern ergaenzen):
+  ADMIN_USERNAME, ADMIN_PASSWORD_HASH (bcrypt-Hash), ADMIN_SESSION_SECRET (zufaelliger String)
+- Setze ADMIN_USERNAME=christian und generiere ein zufaelliges sicheres Passwort (mind. 16 Zeichen).
+  Hashe es mit bcrypt fuer ADMIN_PASSWORD_HASH.
+  Schreibe das Klartext-Passwort EINMALIG in /home/agent/projects/whisky-collection-shop/.admin-credentials.txt
+  (Datei zu .gitignore hinzufuegen, NICHT committen) UND gib es am Ende in deiner Zusammenfassung aus.
+- Login: POST /api/admin/login prueft Username/Passwort gegen Env-Variablen, setzt bei Erfolg ein
+  httpOnly, Secure, SameSite=Lax signiertes JWT-Cookie (jose, kurze Gueltigkeit z.B. 7 Tage)
+- middleware.ts schuetzt alle Routen unter /admin/** und /api/admin/** ausser /admin/login und /api/admin/login
+- POST /api/admin/logout loescht das Cookie
+- Optional aber gerne: einfache In-Memory-Sperre nach 5 Fehlversuchen pro IP
+
+**Datenzugriff (wichtig, sonst sieht man Aenderungen nicht ohne Rebuild):**
+- lib/products.ts liest data/products.json aktuell per statischem Import (import productsData from '@/data/products.json').
+  Das wird beim Build eingefroren! Umstellen auf Laufzeit-Lesen mit fs.readFileSync (oder fs/promises) bei jedem Aufruf.
+- Seiten app/page.tsx, app/katalog/page.tsx, app/katalog/[slug]/page.tsx, app/pakete/page.tsx:
+  jeweils `export const dynamic = 'force-dynamic'` ergaenzen, damit Aenderungen sofort sichtbar sind
+- KEINE Datenbank einfuehren. data/products.json und data/packs.json bleiben die Datenquelle.
+- Schreibzugriffe (Create/Update/Delete) lesen die JSON-Datei, aendern sie in-memory, schreiben sie
+  mit JSON.stringify(data, null, 2) zurueck (lesbare Diffs fuer Git)
+
+**Bild-Upload:**
+- Next.js 14 Route Handler unterstuetzt `await request.formData()` nativ - KEIN multer/formidable noetig
+- Hochgeladene Bilder landen in public/images/whisky/ mit eindeutigem, sicherem Dateinamen
+  (z.B. slug + Zeitstempel + Originalendung, keine Sonderzeichen aus dem Originalnamen uebernehmen)
+- Rueckgabe: relativer Pfad /images/whisky/dateiname.jpg, der ins images[]-Array des Produkts kommt
+- Bild loeschen: physische Datei aus public/images/whisky/ entfernen UND aus images[]-Array im Produkt
+
+### Admin-Seiten (App Router)
+- /admin/login - Login-Formular (Username + Passwort)
+- /admin - Dashboard: Tabelle aller Produkte (Name, Destillerie, Preis, Status, Featured),
+  Status direkt in der Tabelle aenderbar (Dropdown: verfuegbar/reserviert/verkauft),
+  Bearbeiten-/Loeschen-Aktionen pro Zeile, Button "+ Neuer Whisky"
+- /admin/products/neu - Formular fuer alle Felder aus dem WhiskyProduct-Interface
+  (siehe Abschnitt "TypeScript Interface WhiskyProduct" weiter oben in dieser Datei) + Mehrfach-Bild-Upload
+- /admin/products/[id]/bearbeiten - Formular vorausgefuellt, bestehende Bilder als Grid mit
+  Loeschen-Button pro Bild, weitere Bilder hinzufuegbar
+- Logout-Button sichtbar im Admin-Bereich
+
+### API-Routen (alle unter /api/admin/, durch middleware.ts geschuetzt ausser login)
+- POST /api/admin/login
+- POST /api/admin/logout
+- POST /api/admin/products (anlegen, slug automatisch aus Name generieren, Eindeutigkeit pruefen)
+- PUT /api/admin/products/[id] (alle Felder inkl. price/status/description/featured aktualisierbar)
+- DELETE /api/admin/products/[id] (Produkt + zugehoerige Bilddateien loeschen)
+- POST /api/admin/upload (multipart Bild-Upload)
+- DELETE /api/admin/products/[id]/images (ein Bild per Pfad entfernen)
+
+### Header-Bild (components/Navigation.tsx)
+Ergaenze ein Hintergrundbild: gruene schottische Highlands-Landschaft (Huegel, nicht die
+duestere Fass-/Whisky-Bildsprache der bestehenden Hero-Sektion auf der Startseite - bewusst
+ein anderes, helles gruenes Landschaftsbild). Muss auf Mobile UND Desktop gut aussehen
+(bg-cover bg-center, responsive). Text bleibt durch Overlay/Gradient lesbar.
+Verifiziere die Unsplash-Bild-URL vorher mit: curl -sI "URL" | head -1 (muss 200 liefern).
+
+### Swipebare Bildergalerie (app/katalog/[slug]/ProductDetailClient.tsx)
+Aktuell gibt es nur Klick-Thumbnails. Ergaenze Swipe-Geste links/rechts zwischen Bildern,
+besonders fuer Touch-/Mobile-Geraete. Empfehlung: embla-carousel-react (schlank, gut gepflegt,
+npm install erlaubt) - alternativ einfache Touch-Handler (onTouchStart/onTouchEnd mit
+deltaX-Schwellenwert). Bestehende Thumbnail-Navigation darf erhalten bleiben.
+
+### Sicherheits-Hinweise
+- Passwort niemals im Klartext speichern, nur bcrypt-Hash in .env
+- .env und .admin-credentials.txt muessen in .gitignore stehen (pruefen, ggf. ergaenzen) - NICHT committen
+- Alle /admin und /api/admin Routen ausser Login muessen durch die Middleware geschuetzt sein -
+  das ist Teil des QA-Checks am Ende (Test: Zugriff auf /admin ohne Cookie muss auf /admin/login umleiten)
+
+### Asana-Integration
+Lege im Projekt 1216032619928754 fuer jede der 5 Teilaufgaben (Auth, Backend-API, Admin-UI,
+Header/Galerie, QA) einen eigenen Task an (curl-Befehle siehe Abschnitt "Asana-Integration: Pflicht"
+weiter oben in dieser Datei). Markiere jeden Task als erledigt sobald der jeweilige Teilbereich fertig
+und getestet ist.
+
+### Obsidian Knowledge Base
+Dokumentiere das neue Admin-System gemaess Abschnitt "Entwickler-Dokumentation in Obsidian
+Knowledge Base: Pflicht" weiter oben in dieser Datei: Architektur, Login-Ablauf, API-Endpunkte,
+wie man einen neuen Whisky anlegt/bearbeitet/loescht, wo Bilder gespeichert werden.
+
+### QA-Checkliste vor Fertigmeldung (durch qa-Subagent)
+1. Login mit korrekten Zugangsdaten funktioniert, mit falschen schlaegt fehl
+2. /admin ohne gueltiges Cookie leitet auf /admin/login um
+3. /api/admin/products ohne gueltiges Cookie liefert 401
+4. Neuen Whisky anlegen inkl. Bild-Upload funktioniert end-to-end
+5. Bestehenden Whisky bearbeiten (Preis, Status, Beschreibung) funktioniert und ist sofort
+   auf der oeffentlichen Katalogseite sichtbar (ohne Rebuild!)
+6. Bild zu bestehendem Whisky hinzufuegen und wieder loeschen funktioniert
+7. Whisky loeschen entfernt ihn aus dem Katalog und loescht die Bilddateien
+8. Status-Aenderung auf "verkauft"/"reserviert" zeigt korrektes Badge auf der Produktseite
+   und blendet ggf. den Kaufanfrage-Button aus (bei verkauft)
+9. Swipe-Geste auf Produktdetailseite funktioniert (mind. per Touch-Emulation/Code-Review pruefbar)
+10. Logout funktioniert, danach ist /admin wieder geschuetzt
+
+### Build und Deploy
+1. npm run build (Fehler beheben falls noetig)
+2. WICHTIG (Lehre aus dem letzten Mal): pruefe ob noch ein alter next-server Prozess laeuft:
+   ps aux | grep next-server
+   Falls ja: diesen Prozess beenden (kill <PID>), NICHT nur tmux C-c senden, da das beim letzten
+   Mal nicht ausreichte und der alte Prozess weiterlief.
+3. Dann: tmux send-keys -t whisky-preview "cd /home/agent/projects/whisky-collection-shop && npm start" Enter
+4. Pruefen: curl -s -o /dev/null -w "%{http_code}" http://localhost:3000  -> muss 200 sein
+5. Pruefen: curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/admin/login -> muss 200 sein
+6. git add -A (ausser .env, .admin-credentials.txt - pruefen dass .gitignore greift)
+7. git commit -m "Admin-Verwaltungsbereich, Header-Bild, swipebare Bildergalerie"
+8. git push origin master
+
+### Abschluss
+Fasse am Ende klar zusammen: Login-URL, Username, Passwort (aus .admin-credentials.txt),
+welche Features fertig sind, Ergebnis der QA-Checkliste, Asana-Tasks-Status, Knowledge-Base-Link.

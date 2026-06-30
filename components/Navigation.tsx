@@ -7,8 +7,14 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-[#0f0f0f] border-b border-amber-900/30 sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav
+      className="relative bg-cover bg-center sticky top-0 z-40 border-b border-amber-900/30"
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80')" }}
+    >
+      {/* Dark overlay so text remains readable */}
+      <div className="absolute inset-0 bg-black/70" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="font-playfair text-xl font-bold text-amber-500 hover:text-amber-400 transition-colors">
             Christians Whisky Sammlung
