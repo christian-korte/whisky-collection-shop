@@ -1,9 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 import bcrypt from 'bcryptjs'
 import { SignJWT } from 'jose'
+import { readFileSync, existsSync } from 'fs'
+import path from 'path'
 
 // Einfache In-Memory-Sperre: max 5 Fehlversuche pro IP
 const failedAttempts = new Map<string, { count: number; lockedUntil: number }>()
+
+function getPasswordHash(): string {
+  const settingsPath = path.join(process.cwd(), 'data', 'admin-settings.json')
+  if (existsSync(settingsPath)) {
+    try {
+      const settings = JSON.parse(readFileSync(settingsPath, 'utf-8'))
+      if (settings.passwordHash) return settings.passwordHash
+    } catch {}
+  }
+  return process.env.ADMIN_PASSWORD_HASH ?? ''
+}
 
 export async function POST(request: NextRequest) {
   const ip = request.headers.get('x-forwarded-for') ?? request.headers.get('x-real-ip') ?? 'unknown'
@@ -17,7 +30,7 @@ export async function POST(request: NextRequest) {
   const { username, password } = await request.json()
 
   const validUsername = username?.trim().toLowerCase() === process.env.ADMIN_USERNAME?.trim().toLowerCase()
-  const validPassword = await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH ?? '')
+  const validPassword = await bcrypt.compare(password, getPasswordHash())
 
   if (!validUsername || !validPassword) {
     const current = failedAttempts.get(ip) ?? { count: 0, lockedUntil: 0 }
@@ -41,7 +54,7 @@ export async function POST(request: NextRequest) {
   const response = NextResponse.json({ success: true })
   response.cookies.set('admin_session', token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: request.nextUrl.protocol === 'https:',
     sameSite: 'lax',
     maxAge: 7 * 24 * 60 * 60,
     path: '/',

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface Props {
   productName: string
@@ -19,6 +19,14 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [error, setError] = useState('')
+  const [paypalLink, setPaypalLink] = useState('')
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then(r => r.json())
+      .then(d => setPaypalLink(d.paypalLink ?? ''))
+      .catch(() => {})
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -69,14 +77,18 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
               </div>
               <h3 className="font-playfair text-lg font-bold text-[#f5f0e8] mb-2">Anfrage gesendet!</h3>
               <p className="text-[#f5f0e8]/70 text-sm mb-4">
-                Ich melde mich in Kürze bei dir. Zahlung ist per PayPal möglich:
+                Ich melde mich in Kürze bei dir.
               </p>
-              <a
-                href="mailto:info@christian-korte.com"
-                className="text-amber-400 font-medium"
-              >
-                info@christian-korte.com
-              </a>
+              {paypalLink && (
+                <a
+                  href={paypalLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-amber-600 hover:bg-amber-500 text-white font-medium py-2 px-4 rounded-lg transition-colors mb-2"
+                >
+                  Per PayPal bezahlen
+                </a>
+              )}
               <button
                 onClick={onClose}
                 className="mt-6 w-full bg-amber-600 hover:bg-amber-500 text-white font-medium py-3 px-6 rounded-lg transition-colors"

@@ -8,3 +8,4 @@ build/
 .next/
 .admin-credentials.txt
 tsconfig.tsbuildinfo
+data/admin-settings.json

@@ -31,9 +31,6 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-[#0f0f0f] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        <h1 className="font-playfair text-3xl font-bold text-amber-500 text-center mb-8">
-          Christians Whisky Sammlung
-        </h1>
         <div className="bg-[#1a1a1a] border border-amber-900/30 rounded-lg p-8">
           <h2 className="text-[#f5f0e8] text-xl font-semibold mb-6">Admin-Login</h2>
           {error && (

@@ -12,6 +12,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link href="/" className="text-[#f5f0e8]/60 hover:text-amber-400 text-sm transition-colors">
             ← Zur Website
           </Link>
+          <Link href="/admin/einstellungen" className="text-[#f5f0e8]/60 hover:text-amber-400 text-sm transition-colors">
+            Einstellungen
+          </Link>
           <LogoutButton />
         </div>
       </header>

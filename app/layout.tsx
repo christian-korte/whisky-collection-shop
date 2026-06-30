@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: "Christians Whisky Sammlung",
@@ -16,11 +14,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className="min-h-screen bg-[#0f0f0f] text-[#f5f0e8] flex flex-col">
-        <Navigation />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   )

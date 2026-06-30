@@ -12,11 +12,11 @@ export default function Navigation() {
       style={{ backgroundImage: "url('https://images.unsplash.com/photo-1597202496047-8af47ddf05da?w=1920&q=80')" }}
     >
       {/* Dark overlay so text remains readable */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/50" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-playfair text-xl font-bold text-amber-500 hover:text-amber-400 transition-colors">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-32 md:h-48 flex flex-col justify-end">
+        <div className="flex items-center justify-between py-3">
+          <Link href="/" className="font-playfair text-xl md:text-2xl font-bold text-amber-500 hover:text-amber-400 transition-colors">
             Christians Whisky Sammlung
           </Link>
 
