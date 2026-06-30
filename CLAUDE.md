@@ -208,6 +208,14 @@ Erledigt-Sektion GID: 1216032619928755
 - Task gestartet: Kommentar "Gestartet: [kurze Beschreibung was gemacht wird]"
 - Task fertig: completed=true + Verschieben in Erledigt + Kommentar "Abgeschlossen"
 - Blockierung: Kommentar mit Details zum Problem
+- Bei Ad-hoc-Folgeauftraegen ohne vordefinierte Task-GID-Mappings (z.B. Bugfix-Auftraege
+  wie im Abschnitt "AKTUELLER TASK"): Fuer jedes Arbeitspaket einen eigenen Task per POST
+  anlegen (Endpoint https://app.asana.com/api/1.0/tasks, projects + memberships.section
+  setzen), passende Sektion verwenden oder per POST .../projects/PROJECT_GID/sections neu
+  anlegen falls keine passt. Diese Tasks laufend aktualisieren (Start-Kommentar,
+  Fertig-Kommentar, completed=true + Verschieben in Erledigt) - Christian moechte den
+  Fortschritt der einzelnen Arbeitspakete live in Asana mitverfolgen, nicht erst nach
+  Abschluss des Gesamtauftrags.
 
 ---
 
@@ -267,135 +275,154 @@ Nach Abschluss jedes grossen Features das entsprechende Dokument aktualisieren.
 
 
 
-## AKTUELLER TASK: Admin-Verwaltungsbereich, Header-Bild, Swipe-Galerie (2026-06-30)
+
+## AKTUELLER TASK: Admin-Bereich Bugfixes + Passwort-Aenderung + Zahlungslink (2026-06-30, Folgeauftrag)
 
 ### Prioritaet: HOCH - jetzt ausfuehren
 
 ### WICHTIG: Diesmal als echtes Team arbeiten
 Bearbeite diese Aufgabe NICHT alleine im Hauptkontext. Zerlege sie wie im Abschnitt
 "Verfuegbare Spezialisten" beschrieben und spawne echte Subagenten ueber das Task-Tool:
-- security: Login/Auth-System (JWT, Middleware, Passwort-Hashing)
-- backend: CRUD-API-Routen, Datei-Upload, Datenzugriffsschicht
-- ui: Admin-Dashboard/Formulare, Header-Bild, Swipe-Galerie
-- devops: Build, .env Pflege, Server-Neustart, Git
-- qa: End-to-End-Test aller Flows bevor du "fertig" meldest
-Fuehre am Ende eine Konsistenzpruefung durch (einheitliches Tailwind-Styling).
+- security: Cookie/Auth-Fix, Passwort-Aenderung
+- backend: settings.json Datenschicht, API-Routen
+- ui: Layout-Restrukturierung, Profilbereich, Header-Bild
+- devops: Build, Server-Neustart, Git
+- qa: Alle Punkte unten end-to-end verifizieren (echter Login im Browser-Flow simulieren via curl mit Cookie-Jar!)
 
-### Ziel
-Admin-Login fuer Christian Korte + Verwaltungsbereich um den Bestand vollstaendig zu pflegen:
-Bestand verwalten, Beschreibungen anpassen, Bilder ergaenzen/loeschen, neue Whiskys anlegen,
-Whiskys loeschen, Preise aendern, Status auf verkauft/reserviert/verfuegbar setzen.
+### Kontext
+Christian hat den Admin-Bereich getestet und folgende Probleme gemeldet. Ich habe bereits
+vorab recherchiert und die Root Causes identifiziert (siehe unten) - bitte NICHT erneut von
+vorne suchen, sondern direkt an den genannten Stellen fixen.
 
-### Architektur-Vorgaben (bitte exakt so umsetzen, das spart Rueckfragen)
+### BUG A (KRITISCH): Login hat scheinbar keine Wirkung
+**Root Cause gefunden:** In app/api/admin/login/route.ts wird das Cookie mit
+`secure: process.env.NODE_ENV === 'production'` gesetzt. Da `npm start` automatisch
+NODE_ENV=production setzt, ist das Cookie immer `Secure`. Die Seite laeuft aber nur ueber
+HTTP (http://49.12.14.62:3000, kein TLS/Reverse-Proxy). Browser UND curl verwerfen
+`Secure`-Cookies grundsaetzlich auf unverschluesselten HTTP-Verbindungen. Das heisst: Die
+Login-API antwortet mit `{success:true}` und sendet ein Set-Cookie, aber der Browser
+speichert es nie. Die Middleware wirft den Nutzer beim naechsten Request sofort zurueck auf
+/admin/login - daher der Eindruck "Login tut nichts".
+**Fix:** `secure`-Flag dynamisch anhand des tatsaechlichen Requests setzen, nicht anhand von
+NODE_ENV, z.B. `secure: request.nextUrl.protocol === 'https:'`. Gleiche Pruefung im
+logout-Route falls dort ebenfalls ein secure-Flag beim Loeschen relevant ist (cookies.delete
+braucht meist kein secure-Flag, aber zur Sicherheit pruefen). Nach dem Fix: kompletten
+Login-Flow per curl mit Cookie-Jar testen (curl -c cookies.txt ... dann curl -b cookies.txt
+/admin -> muss 200 liefern, nicht 307).
 
-**Auth:**
-- Neue npm-Pakete sind fuer dieses Feature ausdruecklich erlaubt: bcryptjs, jose
-  (jose statt jsonwebtoken, da Next.js Middleware im Edge-Runtime laeuft und jsonwebtoken dort nicht funktioniert)
-- Env-Variablen in .env (NICHT committen, .env.example nur mit leeren Platzhaltern ergaenzen):
-  ADMIN_USERNAME, ADMIN_PASSWORD_HASH (bcrypt-Hash), ADMIN_SESSION_SECRET (zufaelliger String)
-- Setze ADMIN_USERNAME=christian und generiere ein zufaelliges sicheres Passwort (mind. 16 Zeichen).
-  Hashe es mit bcrypt fuer ADMIN_PASSWORD_HASH.
-  Schreibe das Klartext-Passwort EINMALIG in /home/agent/projects/whisky-collection-shop/.admin-credentials.txt
-  (Datei zu .gitignore hinzufuegen, NICHT committen) UND gib es am Ende in deiner Zusammenfassung aus.
-- Login: POST /api/admin/login prueft Username/Passwort gegen Env-Variablen, setzt bei Erfolg ein
-  httpOnly, Secure, SameSite=Lax signiertes JWT-Cookie (jose, kurze Gueltigkeit z.B. 7 Tage)
-- middleware.ts schuetzt alle Routen unter /admin/** und /api/admin/** ausser /admin/login und /api/admin/login
-- POST /api/admin/logout loescht das Cookie
-- Optional aber gerne: einfache In-Memory-Sperre nach 5 Fehlversuchen pro IP
+### BUG B: Navigation/Footer und doppelte/dreifache Ueberschrift im Admin-Bereich
+**Root Cause gefunden:** app/layout.tsx (Root-Layout) rendert IMMER `<Navigation />` und
+`<Footer />` um {children}, auch fuer /admin/** Routen. Zusaetzlich hat app/admin/layout.tsx
+eine eigene Kopfzeile "Admin — Christians Whisky Sammlung" + Abmelden-Link, und
+app/admin/login/page.tsx zeigt nochmal eine grosse Ueberschrift "Christians Whisky Sammlung".
+Ergebnis: Der Seitentitel erscheint bis zu dreimal, und die oeffentliche Navigation
+(Katalog/Pakete/Impressum-Links) ist sinnlos auch im Admin-Tool sichtbar.
+**Fix (empfohlene Struktur):** Next.js Route Groups verwenden, um Layouts sauber zu trennen:
+- `app/(public)/` Route-Group fuer Startseite, Katalog, Pakete, Impressum mit eigenem
+  `app/(public)/layout.tsx`, das `<Navigation />` und `<Footer />` enthaelt
+- `app/admin/` bleibt wie es ist (eigenes admin/layout.tsx mit der Admin-Kopfzeile), bekommt
+  aber KEINE Navigation/Footer mehr vom Root-Layout
+- `app/layout.tsx` (Root) wird minimal: nur `<html>`/`<body>` mit globals.css, KEIN
+  Navigation/Footer mehr direkt
+- In `app/admin/login/page.tsx` die grosse zusaetzliche H1-Ueberschrift "Christians Whisky
+  Sammlung" entfernen (genuegt durch den Admin-Layout-Header oben)
+- Pruefen: app/admin/layout.tsx soll auf /admin/login KEINEN "Abmelden"-Link zeigen (der
+  ist vor dem Login irrefuehrend, da man noch nicht eingeloggt ist). Entweder /admin/login
+  bekommt ein eigenes minimales Layout ausserhalb der Admin-Chrome, oder LogoutButton wird
+  per usePathname() auf /admin/login ausgeblendet. Saubere Variante (Route Groups)
+  bevorzugt: /admin/login NICHT unter dem geschuetzten admin/layout.tsx, sondern eigenes
+  schlankes Layout.
+- Sorgfaeltig testen, dass dadurch keine bestehende Funktionalitaet (Force-Dynamic-Exports,
+  Middleware-Matcher etc.) kaputtgeht.
 
-**Datenzugriff (wichtig, sonst sieht man Aenderungen nicht ohne Rebuild):**
-- lib/products.ts liest data/products.json aktuell per statischem Import (import productsData from '@/data/products.json').
-  Das wird beim Build eingefroren! Umstellen auf Laufzeit-Lesen mit fs.readFileSync (oder fs/promises) bei jedem Aufruf.
-- Seiten app/page.tsx, app/katalog/page.tsx, app/katalog/[slug]/page.tsx, app/pakete/page.tsx:
-  jeweils `export const dynamic = 'force-dynamic'` ergaenzen, damit Aenderungen sofort sichtbar sind
-- KEINE Datenbank einfuehren. data/products.json und data/packs.json bleiben die Datenquelle.
-- Schreibzugriffe (Create/Update/Delete) lesen die JSON-Datei, aendern sie in-memory, schreiben sie
-  mit JSON.stringify(data, null, 2) zurueck (lesbare Diffs fuer Git)
+### BUG C: Header-Bild zu klein / schlecht erkennbar
+Die Navigationsleiste (components/Navigation.tsx) ist nur h-16 (64px) hoch, das
+Hintergrundbild wird dadurch auf einen schmalen Streifen zusammengequetscht. Vergroessere die
+Navigationsleiste deutlich (z.B. auf h-40 bis h-48 fuer den Bildbereich, ggf. mit der
+eigentlichen Link-Leiste als schmalerer Unterbereich innerhalb), damit die gruene
+Highlands-Landschaft gut erkennbar ist. Bild-URL bleibt:
+https://images.unsplash.com/photo-1597202496047-8af47ddf05da (bereits verifiziert, 200 OK).
+Auf Mobile darauf achten, dass die Hoehe nicht zu viel Platz wegnimmt (ggf. responsive
+Hoehen, z.B. h-32 auf Mobile, h-48 ab md:).
 
-**Bild-Upload:**
-- Next.js 14 Route Handler unterstuetzt `await request.formData()` nativ - KEIN multer/formidable noetig
-- Hochgeladene Bilder landen in public/images/whisky/ mit eindeutigem, sicherem Dateinamen
-  (z.B. slug + Zeitstempel + Originalendung, keine Sonderzeichen aus dem Originalnamen uebernehmen)
-- Rueckgabe: relativer Pfad /images/whisky/dateiname.jpg, der ins images[]-Array des Produkts kommt
-- Bild loeschen: physische Datei aus public/images/whisky/ entfernen UND aus images[]-Array im Produkt
+### NEUE FUNKTION D: Passwort aendern
+Christian hat keinen direkten Serverzugriff - eine Aenderung, die einen manuellen
+Server-Neustart erfordert (wie aktuell .env), ist fuer ihn nicht selbst nutzbar. Daher:
+- Lege `data/admin-settings.json` an (Struktur z.B. `{"passwordHash": "..."}`), zur Laufzeit
+  lesbar/schreibbar wie data/products.json (fs.readFileSync/writeFileSync)
+- Beim ersten Zugriff: falls data/admin-settings.json nicht existiert, aus
+  process.env.ADMIN_PASSWORD_HASH initialisieren (Migration/Fallback), Datei dann anlegen
+- `app/api/admin/login/route.ts` liest den Passwort-Hash zuerst aus
+  data/admin-settings.json, falls vorhanden, sonst Fallback auf .env
+- Neue Seite z.B. `/admin/einstellungen` mit Formular: aktuelles Passwort, neues Passwort,
+  Bestaetigung. Neue API-Route `POST /api/admin/password` (durch Middleware geschuetzt):
+  prueft aktuelles Passwort per bcrypt.compare, hasht neues Passwort, schreibt in
+  data/admin-settings.json
+- `data/admin-settings.json` MUSS in .gitignore (enthaelt sicherheitsrelevanten Hash) -
+  NICHT committen
 
-### Admin-Seiten (App Router)
-- /admin/login - Login-Formular (Username + Passwort)
-- /admin - Dashboard: Tabelle aller Produkte (Name, Destillerie, Preis, Status, Featured),
-  Status direkt in der Tabelle aenderbar (Dropdown: verfuegbar/reserviert/verkauft),
-  Bearbeiten-/Loeschen-Aktionen pro Zeile, Button "+ Neuer Whisky"
-- /admin/products/neu - Formular fuer alle Felder aus dem WhiskyProduct-Interface
-  (siehe Abschnitt "TypeScript Interface WhiskyProduct" weiter oben in dieser Datei) + Mehrfach-Bild-Upload
-- /admin/products/[id]/bearbeiten - Formular vorausgefuellt, bestehende Bilder als Grid mit
-  Loeschen-Button pro Bild, weitere Bilder hinzufuegbar
-- Logout-Button sichtbar im Admin-Bereich
+### NEUE FUNKTION E: Zahlungsdaten (PayPal-Link) im Profilbereich
+- Auf derselben oder einer eigenen Einstellungsseite (`/admin/einstellungen`) ein Feld fuer
+  einen PayPal.me-Link (oder allgemeinen Zahlungslink) ergaenzen
+- Speicherung in `data/settings.json` (kann normal committet werden, PayPal-Link ist nicht
+  geheim, gleiches Muster wie products.json: fs read/write, force-dynamic auf Seiten die ihn
+  anzeigen)
+- API-Route `PUT /api/admin/settings` zum Speichern (geschuetzt durch Middleware)
+- Den gespeicherten PayPal-Link in der oeffentlichen Kaufanfrage (KaufanfrageModal oder wo
+  der Kaufprozess stattfindet) anzeigen/verlinken, damit Kaeufer bezahlen koennen. Falls noch
+  kein Link hinterlegt ist: Abschnitt einfach ausblenden (kein Platzhalter-Link).
 
-### API-Routen (alle unter /api/admin/, durch middleware.ts geschuetzt ausser login)
-- POST /api/admin/login
-- POST /api/admin/logout
-- POST /api/admin/products (anlegen, slug automatisch aus Name generieren, Eindeutigkeit pruefen)
-- PUT /api/admin/products/[id] (alle Felder inkl. price/status/description/featured aktualisierbar)
-- DELETE /api/admin/products/[id] (Produkt + zugehoerige Bilddateien loeschen)
-- POST /api/admin/upload (multipart Bild-Upload)
-- DELETE /api/admin/products/[id]/images (ein Bild per Pfad entfernen)
+### NEUE FUNKTION F: Angebotsliste sichtbar machen
+Hinweis: Die Produkttabelle in app/admin/page.tsx existiert bereits vollstaendig (Liste aller
+Flaschen mit Status-Dropdown, Bearbeiten-/Loeschen-Links, "+ Neuer Whisky"-Button) - das
+Problem war NICHT eine fehlende Funktion, sondern dass Christian wegen Bug A nie eingeloggt
+blieb und diese Seite daher nie zu sehen bekam. Nach dem Fix von Bug A sollte dies bereits
+funktionieren. Im QA-Schritt trotzdem explizit verifizieren: Nach erfolgreichem Login muss
+/admin die Produkttabelle mit allen Flaschen anzeigen, Bearbeiten-Link muss zum
+vorausgefuellten Formular fuehren, Status-Dropdown muss Aenderungen sofort speichern.
 
-### Header-Bild (components/Navigation.tsx)
-Ergaenze ein Hintergrundbild: gruene schottische Highlands-Landschaft (Huegel, nicht die
-duestere Fass-/Whisky-Bildsprache der bestehenden Hero-Sektion auf der Startseite - bewusst
-ein anderes, helles gruenes Landschaftsbild). Muss auf Mobile UND Desktop gut aussehen
-(bg-cover bg-center, responsive). Text bleibt durch Overlay/Gradient lesbar.
-Verifiziere die Unsplash-Bild-URL vorher mit: curl -sI "URL" | head -1 (muss 200 liefern).
-
-### Swipebare Bildergalerie (app/katalog/[slug]/ProductDetailClient.tsx)
-Aktuell gibt es nur Klick-Thumbnails. Ergaenze Swipe-Geste links/rechts zwischen Bildern,
-besonders fuer Touch-/Mobile-Geraete. Empfehlung: embla-carousel-react (schlank, gut gepflegt,
-npm install erlaubt) - alternativ einfache Touch-Handler (onTouchStart/onTouchEnd mit
-deltaX-Schwellenwert). Bestehende Thumbnail-Navigation darf erhalten bleiben.
-
-### Sicherheits-Hinweise
-- Passwort niemals im Klartext speichern, nur bcrypt-Hash in .env
-- .env und .admin-credentials.txt muessen in .gitignore stehen (pruefen, ggf. ergaenzen) - NICHT committen
-- Alle /admin und /api/admin Routen ausser Login muessen durch die Middleware geschuetzt sein -
-  das ist Teil des QA-Checks am Ende (Test: Zugriff auf /admin ohne Cookie muss auf /admin/login umleiten)
-
-### Asana-Integration
-Lege im Projekt 1216032619928754 fuer jede der 5 Teilaufgaben (Auth, Backend-API, Admin-UI,
-Header/Galerie, QA) einen eigenen Task an (curl-Befehle siehe Abschnitt "Asana-Integration: Pflicht"
-weiter oben in dieser Datei). Markiere jeden Task als erledigt sobald der jeweilige Teilbereich fertig
-und getestet ist.
-
-### Obsidian Knowledge Base
-Dokumentiere das neue Admin-System gemaess Abschnitt "Entwickler-Dokumentation in Obsidian
-Knowledge Base: Pflicht" weiter oben in dieser Datei: Architektur, Login-Ablauf, API-Endpunkte,
-wie man einen neuen Whisky anlegt/bearbeitet/loescht, wo Bilder gespeichert werden.
-
-### QA-Checkliste vor Fertigmeldung (durch qa-Subagent)
-1. Login mit korrekten Zugangsdaten funktioniert, mit falschen schlaegt fehl
-2. /admin ohne gueltiges Cookie leitet auf /admin/login um
-3. /api/admin/products ohne gueltiges Cookie liefert 401
-4. Neuen Whisky anlegen inkl. Bild-Upload funktioniert end-to-end
-5. Bestehenden Whisky bearbeiten (Preis, Status, Beschreibung) funktioniert und ist sofort
-   auf der oeffentlichen Katalogseite sichtbar (ohne Rebuild!)
-6. Bild zu bestehendem Whisky hinzufuegen und wieder loeschen funktioniert
-7. Whisky loeschen entfernt ihn aus dem Katalog und loescht die Bilddateien
-8. Status-Aenderung auf "verkauft"/"reserviert" zeigt korrektes Badge auf der Produktseite
-   und blendet ggf. den Kaufanfrage-Button aus (bei verkauft)
-9. Swipe-Geste auf Produktdetailseite funktioniert (mind. per Touch-Emulation/Code-Review pruefbar)
-10. Logout funktioniert, danach ist /admin wieder geschuetzt
+### QA-Checkliste vor Fertigmeldung (durch qa-Subagent, ZWINGEND mit echtem Cookie-Flow testen)
+1. `curl -c cookies.txt -X POST .../api/admin/login` mit korrekten Daten -> Cookie wird in
+   cookies.txt gespeichert (Datei nicht leer, enthaelt admin_session)
+2. `curl -b cookies.txt .../admin` -> Status 200 (NICHT 307), enthaelt "Produktverwaltung"
+3. `curl -b cookies.txt .../admin` mit Username in anderer Gross-/Kleinschreibung beim Login
+   (z.B. "Christian" statt "christian") funktioniert weiterhin (Regression aus letztem Fix)
+4. Seitentitel "Christians Whisky Sammlung" erscheint auf /admin/login nur noch einmal
+5. /admin/login zeigt KEINEN "Abmelden"-Link
+6. /admin und Unterseiten zeigen KEINE oeffentliche Navigation (Katalog/Pakete/Impressum-Links)
+7. Oeffentliche Seiten (/,/katalog,/pakete,/impressum) zeigen weiterhin ganz normal
+   Navigation + Footer wie bisher - Regression durch die Layout-Restrukturierung ausschliessen
+8. Passwort aendern: altes Passwort falsch eingegeben -> Fehler; korrektes altes Passwort +
+   neues Passwort -> Erfolg; danach Login mit NEUEM Passwort funktioniert, mit altem nicht mehr
+9. PayPal-Link speichern in den Einstellungen -> erscheint korrekt im Kaufanfrage-Bereich der
+   oeffentlichen Seite
+10. Header-Bild ist auf Desktop UND Mobile deutlich groesser/erkennbarer als vorher
+    (Screenshot-Vergleich nicht moeglich, aber HTML/CSS-Hoehe pruefen: h-16 darf nicht mehr
+    vorkommen)
+11. Alle bisherigen Features aus dem letzten Task (Bild-Upload, Produkt anlegen/loeschen,
+    Swipe-Galerie) funktionieren weiterhin (keine Regression durch die Layout-Aenderung)
 
 ### Build und Deploy
 1. npm run build (Fehler beheben falls noetig)
-2. WICHTIG (Lehre aus dem letzten Mal): pruefe ob noch ein alter next-server Prozess laeuft:
-   ps aux | grep next-server
-   Falls ja: diesen Prozess beenden (kill <PID>), NICHT nur tmux C-c senden, da das beim letzten
-   Mal nicht ausreichte und der alte Prozess weiterlief.
-3. Dann: tmux send-keys -t whisky-preview "cd /home/agent/projects/whisky-collection-shop && npm start" Enter
-4. Pruefen: curl -s -o /dev/null -w "%{http_code}" http://localhost:3000  -> muss 200 sein
-5. Pruefen: curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/admin/login -> muss 200 sein
-6. git add -A (ausser .env, .admin-credentials.txt - pruefen dass .gitignore greift)
-7. git commit -m "Admin-Verwaltungsbereich, Header-Bild, swipebare Bildergalerie"
-8. git push origin master
+2. Pruefen ob noch ein alter next-server Prozess auf Port 3000 laeuft:
+   ss -tlnp | grep ':3000' bzw. ps aux | grep next-server
+   Falls ja: Prozess sauber beenden (kill <PID>, ggf. sudo -u agent kill, da der Prozess dem
+   agent-User gehoeren sollte)
+3. Neu starten in der tmux-Session whisky-preview:
+   tmux send-keys -t whisky-preview C-c
+   (kurz warten)
+   tmux send-keys -t whisky-preview "cd /home/agent/projects/whisky-collection-shop && exec sudo -u agent npm start" Enter
+   WICHTIG: Nach dem Senden von C-c und vor dem naechsten send-keys mindestens 1-2 Sekunden
+   warten, danach IMMER per `tmux capture-pane -t whisky-preview -p | tail -15` pruefen, dass
+   "Ready in" tatsaechlich im Output erscheint UND per `ps aux | grep next-server` dass ein
+   Prozess wirklich laeuft, BEVOR du den Neustart als erfolgreich meldest. Beim letzten Mal
+   ist der Neustart-Befehl kommentarlos haengengeblieben und der Server lief mehrere Minuten
+   gar nicht, ohne dass das im Log auffiel - das darf nicht nochmal passieren.
+4. curl-Tests wie in QA-Checkliste oben, gegen http://49.12.14.62:3000 (nicht nur localhost)
+5. git add, commit, push (KEINE .env, KEINE data/admin-settings.json committen - .gitignore
+   pruefen)
 
 ### Abschluss
-Fasse am Ende klar zusammen: Login-URL, Username, Passwort (aus .admin-credentials.txt),
-welche Features fertig sind, Ergebnis der QA-Checkliste, Asana-Tasks-Status, Knowledge-Base-Link.
+Fasse am Ende klar zusammen: welche Bugs behoben wurden (mit Verweis auf die Root Causes
+oben), welche neuen Features fertig sind, Ergebnis der QA-Checkliste (alle 11 Punkte
+einzeln), Login-URL zum erneuten Testen durch Christian.
