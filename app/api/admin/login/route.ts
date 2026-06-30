@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
 
   const { username, password } = await request.json()
 
-  const validUsername = username === process.env.ADMIN_USERNAME
+  const validUsername = username?.trim().toLowerCase() === process.env.ADMIN_USERNAME?.trim().toLowerCase()
   const validPassword = await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH ?? '')
 
   if (!validUsername || !validPassword) {

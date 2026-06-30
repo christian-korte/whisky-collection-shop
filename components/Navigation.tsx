@@ -9,10 +9,10 @@ export default function Navigation() {
   return (
     <nav
       className="relative bg-cover bg-center sticky top-0 z-40 border-b border-amber-900/30"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80')" }}
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1597202496047-8af47ddf05da?w=1920&q=80')" }}
     >
       {/* Dark overlay so text remains readable */}
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
