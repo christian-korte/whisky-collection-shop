@@ -11,7 +11,7 @@ import PrivatverkaufBanner from '@/components/PrivatverkaufBanner'
 
 export default function ProductDetailClient({ product }: { product: WhiskyProduct }) {
   const [selectedImage, setSelectedImage] = useState(0)
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalType, setModalType] = useState<'kaufanfrage' | 'rueckfrage' | null>(null)
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
 
   useEffect(() => {
@@ -150,23 +150,34 @@ export default function ProductDetailClient({ product }: { product: WhiskyProduc
 
           {/* CTA */}
           {product.status === 'available' && (
-            <button
-              onClick={() => setModalOpen(true)}
-              className="w-full sm:w-auto bg-amber-600 hover:bg-amber-500 text-white font-semibold px-10 py-4 rounded-xl transition-colors text-lg mb-6"
-            >
-              Kaufanfrage stellen
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 mb-6">
+              <button
+                onClick={() => setModalType('kaufanfrage')}
+                className="flex-1 sm:flex-none bg-amber-600 hover:bg-amber-500 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-lg"
+              >
+                Kaufanfrage stellen
+              </button>
+              <button
+                onClick={() => setModalType('rueckfrage')}
+                className="flex-1 sm:flex-none bg-transparent hover:bg-amber-900/20 border border-amber-600 text-amber-400 font-semibold px-8 py-4 rounded-xl transition-colors text-lg"
+              >
+                Rückfrage stellen
+              </button>
+            </div>
           )}
 
           {product.status === 'reserved' && (
             <div className="bg-amber-900/20 border border-amber-700/30 rounded-xl p-4 mb-6">
               <p className="text-amber-400 font-medium">Diese Flasche ist bereits reserviert.</p>
-              <p className="text-[#f5f0e8]/60 text-sm mt-1">
-                Interesse trotzdem? Schreib an{' '}
-                <a href="mailto:info@christian-korte.com" className="text-amber-400 hover:underline">
-                  info@christian-korte.com
-                </a>
+              <p className="text-[#f5f0e8]/60 text-sm mt-2 mb-3">
+                Trotzdem interessiert? Stell eine Rückfrage — vielleicht klappt es noch.
               </p>
+              <button
+                onClick={() => setModalType('rueckfrage')}
+                className="bg-transparent hover:bg-amber-900/30 border border-amber-700/50 text-amber-400 font-medium px-5 py-2.5 rounded-lg transition-colors text-sm"
+              >
+                Rückfrage stellen
+              </button>
             </div>
           )}
 
@@ -207,11 +218,13 @@ export default function ProductDetailClient({ product }: { product: WhiskyProduc
         </Link>
       </div>
 
-      {modalOpen && (
+      {modalType && (
         <KaufanfrageModal
           productName={product.name}
           productId={product.id}
-          onClose={() => setModalOpen(false)}
+          productPrice={product.price}
+          type={modalType}
+          onClose={() => setModalType(null)}
         />
       )}
     </div>

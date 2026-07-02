@@ -5,10 +5,12 @@ import { useState, useEffect } from 'react'
 interface Props {
   productName: string
   productId: string
+  productPrice?: number
+  type: 'kaufanfrage' | 'rueckfrage'
   onClose: () => void
 }
 
-export default function KaufanfrageModal({ productName, productId, onClose }: Props) {
+export default function KaufanfrageModal({ productName, productId, productPrice, type, onClose }: Props) {
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -29,6 +31,10 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
       .catch(() => {})
   }, [])
 
+  const isKaufanfrage = type === 'kaufanfrage'
+  const title = isKaufanfrage ? 'Kaufanfrage stellen' : 'Rückfrage zum Artikel'
+  const submitLabel = isKaufanfrage ? 'Kaufanfrage absenden' : 'Rückfrage absenden'
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
@@ -38,7 +44,13 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, productName, productId }),
+        body: JSON.stringify({
+          ...form,
+          productName,
+          productId,
+          productPrice,
+          inquiryType: type,
+        }),
       })
 
       if (!res.ok) throw new Error('Fehler beim Senden')
@@ -55,8 +67,13 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
         <div className="p-6">
           <div className="flex items-start justify-between mb-6">
             <div>
-              <h2 className="font-playfair text-xl font-bold text-[#f5f0e8]">Kaufanfrage</h2>
+              <h2 className="font-playfair text-xl font-bold text-[#f5f0e8]">{title}</h2>
               <p className="text-amber-500/80 text-sm mt-1">{productName}</p>
+              {isKaufanfrage && productPrice && (
+                <p className="text-amber-400 font-semibold text-sm mt-0.5">
+                  Kaufpreis: {productPrice.toLocaleString('de-DE')} €
+                </p>
+              )}
             </div>
             <button
               onClick={onClose}
@@ -76,23 +93,27 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-playfair text-lg font-bold text-[#f5f0e8] mb-2">Anfrage gesendet!</h3>
+              <h3 className="font-playfair text-lg font-bold text-[#f5f0e8] mb-2">
+                {isKaufanfrage ? 'Kaufanfrage gesendet!' : 'Rückfrage gesendet!'}
+              </h3>
               <p className="text-[#f5f0e8]/70 text-sm mb-4">
-                Ich melde mich in Kürze bei dir.
+                {isKaufanfrage
+                  ? 'Ich melde mich in Kürze bei dir, um die Übergabe zu koordinieren.'
+                  : 'Ich melde mich in Kürze bei dir.'}
               </p>
-              {paypalLink && (
+              {isKaufanfrage && paypalLink && (
                 <a
                   href={paypalLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-amber-600 hover:bg-amber-500 text-white font-medium py-2 px-4 rounded-lg transition-colors mb-2"
+                  className="inline-block bg-amber-600 hover:bg-amber-500 text-white font-medium py-2 px-4 rounded-lg transition-colors mb-4"
                 >
                   Per PayPal bezahlen
                 </a>
               )}
               <button
                 onClick={onClose}
-                className="mt-6 w-full bg-amber-600 hover:bg-amber-500 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+                className="mt-2 w-full bg-[#111] hover:bg-[#222] border border-amber-900/30 text-[#f5f0e8]/70 font-medium py-3 px-6 rounded-lg transition-colors"
               >
                 Schließen
               </button>
@@ -142,29 +163,35 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
 
               <div>
                 <label className="block text-sm font-medium text-[#f5f0e8]/80 mb-1">
-                  Nachricht <span className="text-[#f5f0e8]/40">(optional)</span>
+                  {isKaufanfrage ? 'Nachricht' : 'Frage oder Anmerkung'}
+                  {' '}<span className="text-[#f5f0e8]/40">(optional)</span>
                 </label>
                 <textarea
                   rows={3}
                   value={form.message}
                   onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                   className="w-full bg-[#111] border border-amber-900/30 rounded-lg px-4 py-2.5 text-[#f5f0e8] placeholder-[#f5f0e8]/30 focus:outline-none focus:border-amber-600 transition-colors text-sm resize-none"
-                  placeholder="Fragen, Anmerkungen, Wunschtermin..."
+                  placeholder={isKaufanfrage
+                    ? 'Wunschtermin, bevorzugte Zahlungsart, Abholung oder Versand...'
+                    : 'Fragen zum Zustand, zur Herkunft, Preisverhandlung...'
+                  }
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-[#f5f0e8]/80 mb-1">
-                  Preisvorschlag <span className="text-[#f5f0e8]/40">(optional)</span>
-                </label>
-                <input
-                  type="text"
-                  value={form.priceOffer}
-                  onChange={e => setForm(f => ({ ...f, priceOffer: e.target.value }))}
-                  className="w-full bg-[#111] border border-amber-900/30 rounded-lg px-4 py-2.5 text-[#f5f0e8] placeholder-[#f5f0e8]/30 focus:outline-none focus:border-amber-600 transition-colors text-sm"
-                  placeholder="z.B. 500 €"
-                />
-              </div>
+              {!isKaufanfrage && (
+                <div>
+                  <label className="block text-sm font-medium text-[#f5f0e8]/80 mb-1">
+                    Preisvorschlag <span className="text-[#f5f0e8]/40">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={form.priceOffer}
+                    onChange={e => setForm(f => ({ ...f, priceOffer: e.target.value }))}
+                    className="w-full bg-[#111] border border-amber-900/30 rounded-lg px-4 py-2.5 text-[#f5f0e8] placeholder-[#f5f0e8]/30 focus:outline-none focus:border-amber-600 transition-colors text-sm"
+                    placeholder="z.B. 500 €"
+                  />
+                </div>
+              )}
 
               <div className="space-y-3 pt-2">
                 <label className="flex items-start gap-3 cursor-pointer">
@@ -205,7 +232,7 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
                 disabled={status === 'sending'}
                 className="w-full bg-amber-600 hover:bg-amber-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors"
               >
-                {status === 'sending' ? 'Wird gesendet...' : 'Anfrage absenden'}
+                {status === 'sending' ? 'Wird gesendet...' : submitLabel}
               </button>
             </form>
           )}
