@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getFeaturedProducts } from '@/lib/products'
+import { getFeaturedProducts, getAllProducts } from '@/lib/products'
 
 export const dynamic = 'force-dynamic'
 import StatusBadge from '@/components/StatusBadge'
@@ -8,6 +8,7 @@ import PrivatverkaufBanner from '@/components/PrivatverkaufBanner'
 
 export default function HomePage() {
   const featured = getFeaturedProducts()
+  const allProducts = getAllProducts()
 
   return (
     <div>
@@ -102,7 +103,7 @@ export default function HomePage() {
             href="/katalog"
             className="inline-flex items-center gap-2 border border-amber-600/50 hover:border-amber-500 text-amber-500 hover:text-amber-400 font-medium px-8 py-3 rounded-xl transition-all"
           >
-            Alle {'{'}10{'}'} Flaschen ansehen
+            Alle {allProducts.length} Flaschen ansehen
           </Link>
         </div>
       </section>
