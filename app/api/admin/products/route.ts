@@ -43,6 +43,7 @@ export async function POST(request: NextRequest) {
     volume: body.volume,
     condition: body.condition ?? 'sealed',
     rating: body.rating ?? null,
+    whiskybaseUrl: body.whiskybaseUrl ?? undefined,
     price: body.price,
     status: body.status ?? 'available',
     description: body.description ?? '',

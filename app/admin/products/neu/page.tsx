@@ -37,6 +37,7 @@ export default function NeuenWhiskyAnlegen() {
     condition: 'sealed',
     ratingSource: '',
     ratingScore: '',
+    whiskybaseUrl: '',
     price: '',
     status: 'available',
     description: '',
@@ -93,6 +94,7 @@ export default function NeuenWhiskyAnlegen() {
         form.ratingSource && form.ratingScore
           ? { source: form.ratingSource, score: parseFloat(form.ratingScore) }
           : null,
+      whiskybaseUrl: form.whiskybaseUrl || undefined,
       price: parseFloat(form.price),
       status: form.status,
       description: form.description,
@@ -286,6 +288,15 @@ export default function NeuenWhiskyAnlegen() {
               />
             </Field>
           </div>
+          <Field label="Whiskybase-URL (optional)">
+            <input
+              name="whiskybaseUrl"
+              value={form.whiskybaseUrl}
+              onChange={handleChange}
+              className={inputCls}
+              placeholder="z.B. https://www.whiskybase.com/whiskies/12345/bowmore-..."
+            />
+          </Field>
         </section>
 
         {/* Preis & Status */}

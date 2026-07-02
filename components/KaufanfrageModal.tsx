@@ -14,6 +14,7 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
     email: '',
     phone: '',
     message: '',
+    priceOffer: '',
     ageConfirmed: false,
     privateConfirmed: false,
   })
@@ -149,6 +150,19 @@ export default function KaufanfrageModal({ productName, productId, onClose }: Pr
                   onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                   className="w-full bg-[#111] border border-amber-900/30 rounded-lg px-4 py-2.5 text-[#f5f0e8] placeholder-[#f5f0e8]/30 focus:outline-none focus:border-amber-600 transition-colors text-sm resize-none"
                   placeholder="Fragen, Anmerkungen, Wunschtermin..."
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-[#f5f0e8]/80 mb-1">
+                  Preisvorschlag <span className="text-[#f5f0e8]/40">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  value={form.priceOffer}
+                  onChange={e => setForm(f => ({ ...f, priceOffer: e.target.value }))}
+                  className="w-full bg-[#111] border border-amber-900/30 rounded-lg px-4 py-2.5 text-[#f5f0e8] placeholder-[#f5f0e8]/30 focus:outline-none focus:border-amber-600 transition-colors text-sm"
+                  placeholder="z.B. 500 €"
                 />
               </div>
 

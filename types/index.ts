@@ -20,6 +20,7 @@ export interface WhiskyProduct {
   images: string[]
   packIds: string[]
   featured: boolean
+  whiskybaseUrl?: string
 }
 
 export interface Pack {

@@ -14,6 +14,14 @@ export default function ProductDetailClient({ product }: { product: WhiskyProduc
   const [modalOpen, setModalOpen] = useState(false)
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
 
+  useEffect(() => {
+    fetch('/api/stats/visit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: product.slug }),
+    }).catch(() => {})
+  }, [product.slug])
+
   // Sync selectedImage state when carousel scrolls (e.g. via swipe)
   const onSelect = useCallback(() => {
     if (!emblaApi) return
@@ -108,15 +116,27 @@ export default function ProductDetailClient({ product }: { product: WhiskyProduc
 
           {/* Rating */}
           {product.rating && (
-            <div className="bg-amber-900/20 border border-amber-800/30 rounded-xl p-4 mb-6 inline-flex items-center gap-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-amber-400">{product.rating.score}</div>
-                <div className="text-xs text-amber-500/70">Punkte</div>
+            <div className="mb-6">
+              <div className="bg-amber-900/20 border border-amber-800/30 rounded-xl p-4 inline-flex items-center gap-4">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-amber-400">{product.rating.score}</div>
+                  <div className="text-xs text-amber-500/70">Punkte</div>
+                </div>
+                <div className="h-10 w-px bg-amber-800/40" />
+                <div>
+                  <div className="text-sm font-medium text-[#f5f0e8]/80">{product.rating.source}</div>
+                  <div className="text-xs text-[#f5f0e8]/40">Bewertung</div>
+                </div>
               </div>
-              <div className="h-10 w-px bg-amber-800/40" />
-              <div>
-                <div className="text-sm font-medium text-[#f5f0e8]/80">{product.rating.source}</div>
-                <div className="text-xs text-[#f5f0e8]/40">Bewertung</div>
+              <div className="mt-2">
+                <a
+                  href={product.whiskybaseUrl ?? `https://www.whiskybase.com/search?q=${encodeURIComponent(product.name)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-amber-400/60 hover:text-amber-400 transition-colors"
+                >
+                  Auf Whiskybase prüfen ↗
+                </a>
               </div>
             </div>
           )}

@@ -38,6 +38,7 @@ export default function BearbeitenClient({ product }: { product: WhiskyProduct }
     condition: product.condition,
     ratingSource: product.rating?.source ?? '',
     ratingScore: product.rating?.score != null ? String(product.rating.score) : '',
+    whiskybaseUrl: product.whiskybaseUrl ?? '',
     price: String(product.price),
     status: product.status,
     description: product.description,
@@ -105,6 +106,7 @@ export default function BearbeitenClient({ product }: { product: WhiskyProduct }
         form.ratingSource && form.ratingScore
           ? { source: form.ratingSource, score: parseFloat(form.ratingScore) }
           : null,
+      whiskybaseUrl: form.whiskybaseUrl || undefined,
       price: parseFloat(form.price),
       status: form.status,
       description: form.description,
@@ -304,6 +306,15 @@ export default function BearbeitenClient({ product }: { product: WhiskyProduct }
               />
             </Field>
           </div>
+          <Field label="Whiskybase-URL (optional)">
+            <input
+              name="whiskybaseUrl"
+              value={form.whiskybaseUrl}
+              onChange={handleChange}
+              className={inputCls}
+              placeholder="z.B. https://www.whiskybase.com/whiskies/12345/bowmore-..."
+            />
+          </Field>
         </section>
 
         {/* Preis & Status */}

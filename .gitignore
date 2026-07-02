@@ -9,3 +9,4 @@ build/
 .admin-credentials.txt
 tsconfig.tsbuildinfo
 data/admin-settings.json
+data/stats.json
