@@ -13,6 +13,8 @@ export default function ImpressumPage() {
         <section>
           <h2 className="font-playfair text-xl font-bold text-amber-500 mb-3">Angaben gemäß § 5 TMG</h2>
           <p>Christian Korte<br />
+          Hermann-Moormann-Str. 35<br />
+          49090 Osnabrück<br />
           E-Mail: <a href="mailto:info@christian-korte.com" className="text-amber-400 hover:underline">info@christian-korte.com</a></p>
         </section>
 
